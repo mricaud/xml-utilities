@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<file name="input.xsl"
+      abs-uri="file:/C:/Users/mricaud/_WORK/_github/mricaud/xml-utilities/src/test/org/mricaud/xml-utilities/get-xml-file-static-dependency-tree/xsl/input.xsl"
+      _version="2.0">
+   <content>
+      <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+                      xmlns:xs="http://www.w3.org/2001/XMLSchema"
+                      exclude-result-prefixes="xs"
+                      version="2.0">
+  
+         <xsl:import href="module.xsl" xml:base="/my/absolute/path/"/>
+         <xsl:import href="folder/mod-1.xsl"/>
+         <xsl:include href="folder/mod-2.xsl"/>
+  
+      </xsl:stylesheet>
+   </content>
+   <file name="module.xsl" dependency-type="xsl:import">
+      <report role="error" code="xut:docIsNotAvailable">document is not available:  file:/my/absolute/path/module.xsl</report>
+   </file>
+   <file dependency-type="xsl:import"
+         name="mod-1.xsl"
+         uri="folder/mod-1.xsl"
+         abs-uri="file:/C:/Users/mricaud/_WORK/_github/mricaud/xml-utilities/src/test/org/mricaud/xml-utilities/get-xml-file-static-dependency-tree/xsl/folder/mod-1.xsl"
+         _version="2.0">
+      <content>
+         <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+                         xmlns:xs="http://www.w3.org/2001/XMLSchema"
+                         exclude-result-prefixes="xs"
+                         version="2.0">
+  
+            <xsl:import href="../module.xsl"/>
+  
+         </xsl:stylesheet>
+      </content>
+      <file dependency-type="xsl:import"
+            name="module.xsl"
+            uri="../module.xsl"
+            abs-uri="file:/C:/Users/mricaud/_WORK/_github/mricaud/xml-utilities/src/test/org/mricaud/xml-utilities/get-xml-file-static-dependency-tree/xsl/module.xsl"
+            _version="2.0">
+         <content>
+            <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+                            xmlns:xs="http://www.w3.org/2001/XMLSchema"
+                            exclude-result-prefixes="xs"
+                            version="2.0">
+  
+               <xsl:template match="node() | @*">
+                  <xsl:copy>
+                     <xsl:apply-templates select="node() | @*"/>
+                  </xsl:copy>
+               </xsl:template>
+  
+            </xsl:stylesheet>
+         </content>
+      </file>
+   </file>
+   <file dependency-type="xsl:include"
+         name="mod-2.xsl"
+         uri="folder/mod-2.xsl"
+         abs-uri="file:/C:/Users/mricaud/_WORK/_github/mricaud/xml-utilities/src/test/org/mricaud/xml-utilities/get-xml-file-static-dependency-tree/xsl/folder/mod-2.xsl"
+         _version="2.0">
+      <content>
+         <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+                         xmlns:xs="http://www.w3.org/2001/XMLSchema"
+                         exclude-result-prefixes="xs"
+                         version="2.0">
+  
+            <xsl:import href="mod-1.xsl"/>
+  
+         </xsl:stylesheet>
+      </content>
+      <file dependency-type="xsl:import"
+            name="mod-1.xsl"
+            uri="mod-1.xsl"
+            abs-uri="file:/C:/Users/mricaud/_WORK/_github/mricaud/xml-utilities/src/test/org/mricaud/xml-utilities/get-xml-file-static-dependency-tree/xsl/folder/mod-1.xsl"
+            _version="2.0">
+         <report role="info" code="duplicatedDependency">This file has already been processed</report>
+      </file>
+   </file>
+</file>

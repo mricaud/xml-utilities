@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<grammar 
+  xmlns="http://relaxng.org/ns/structure/1.0"
+  xmlns:sch="http://www.ascc.net/xml/schematron"
+  >
+  
+  <include href="folder/mod-1.rng"/>
+  
+  <start combine="choice">
+    <ref name="root"/>
+  </start>
+
+  <define name="root">
+    <element name="root">
+      <sch:extends href="../sch/folder/mod-2.sch"/>
+      <externalRef href="folder/mod-2.rng"/>
+    </element>
+  </define>
+  
+</grammar>

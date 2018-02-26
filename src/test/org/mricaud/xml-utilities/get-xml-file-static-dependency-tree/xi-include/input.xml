@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root xmlns:xi="http://www.w3.org/2003/XInclude">
+  <xi:include href="folder/elements.xml">
+    <xi:fallback>
+      <xi:include href="folder/fallback.xml">
+        <xi:fallback>Missing file</xi:fallback>
+      </xi:include>
+    </xi:fallback>
+  </xi:include>
+</root>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?><html xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+      <title>input.xsd dependency tree</title><style type="text/css">
+          
+            body{font-family:sans-serif;}
+            li{list-style-type:square; margin-top:1em;}
+            .dependency-type{color:grey;}
+            .specific-attributes{color:grey; font-size:0.85em;}
+            .content{padding:0.5em;border:1px solid grey;color:grey;overflow: auto;}
+            .report.error{color:red;}
+            .report.warning{color:orange;}
+            .report.info{color:lightblue;}
+          
+        </style></head>
+   <body>
+      <h3>input.xsd dependency tree</h3>
+      <ul>
+         <li><a href="file:/C:/Users/mricaud/_WORK/_github/mricaud/xml-utilities/src/test/org/mricaud/xml-utilities/get-xml-file-static-dependency-tree/xsd/input.xsd"><strong>input.xsd</strong></a><pre class="content">&lt;xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"&gt;
+  &lt;xs:import schemaLocation="folder/mod-1.xsd" namespace="https://github.com/mricaud/xml-utilities"/&gt;
+  &lt;xs:include schemaLocation="folder/mod-2.xsd"/&gt;
+&lt;/xs:schema&gt;</pre><ul>
+               <li><a href="file:/C:/Users/mricaud/_WORK/_github/mricaud/xml-utilities/src/test/org/mricaud/xml-utilities/get-xml-file-static-dependency-tree/xsd/folder/mod-1.xsd">folder/<strong>mod-1.xsd</strong></a><span class="dependency-type"> xs:import</span><pre class="content">&lt;xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="https://github.com/mricaud/xml-utilities"&gt;
+  
+&lt;/xs:schema&gt;</pre></li>
+               <li><a href="file:/C:/Users/mricaud/_WORK/_github/mricaud/xml-utilities/src/test/org/mricaud/xml-utilities/get-xml-file-static-dependency-tree/xsd/folder/mod-2.xsd">folder/<strong>mod-2.xsd</strong></a><span class="dependency-type"> xs:include</span><pre class="content">&lt;xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"&gt;
+  &lt;xs:include schemaLocation="../module.xsd"/&gt;
+&lt;/xs:schema&gt;</pre><ul>
+                     <li><a href="file:/C:/Users/mricaud/_WORK/_github/mricaud/xml-utilities/src/test/org/mricaud/xml-utilities/get-xml-file-static-dependency-tree/xsd/module.xsd">../<strong>module.xsd</strong></a><span class="dependency-type"> xs:include</span><pre class="content">&lt;xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"&gt;
+  
+&lt;/xs:schema&gt;</pre></li>
+                  </ul>
+               </li>
+            </ul>
+         </li>
+      </ul>
+   </body>
+</html>

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<file name="input.sch"
+      abs-uri="file:/C:/Users/mricaud/_WORK/_github/mricaud/xml-utilities/src/test/org/mricaud/xml-utilities/get-xfile-dependancies/sch/input.sch"
+      _queryBinding="xslt2"
+      _defaultPhase="test">
+   <content>
+      <schema xmlns="http://purl.oclc.org/dsdl/schematron"
+              xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+              queryBinding="xslt2"
+              see="readme.txt"
+              defaultPhase="test">
+
+         <xsl:include href="../xsl/module.xsl"/>
+  
+         <!--see https://www.oxygenxml.com/forum/topic6804.html-->
+         <extends href="folder/mod-1.sch"/>
+  
+         <phase id="test">
+            <active pattern="test-1"/>
+         </phase>
+  
+         <include href="folder/mod-2.sch"/>
+  
+         <pattern id="test-1">
+            <rule context="/*">
+               <assert test="true()">Root element</assert>
+            </rule>
+         </pattern>
+
+      </schema>
+   </content>
+   <file dependency-type="xsl:include"
+         name="module.xsl"
+         uri="../xsl/module.xsl"
+         abs-uri="file:/C:/Users/mricaud/_WORK/_github/mricaud/xml-utilities/src/test/org/mricaud/xml-utilities/get-xfile-dependancies/xsl/module.xsl"
+         _version="2.0">
+      <content>
+         <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+                         xmlns:xs="http://www.w3.org/2001/XMLSchema"
+                         exclude-result-prefixes="xs"
+                         version="2.0">
+  
+            <xsl:template match="node() | @*">
+               <xsl:copy>
+                  <xsl:apply-templates select="node() | @*"/>
+               </xsl:copy>
+            </xsl:template>
+  
+         </xsl:stylesheet>
+      </content>
+   </file>
+   <file dependency-type="extends"
+         name="mod-1.sch"
+         uri="folder/mod-1.sch"
+         abs-uri="file:/C:/Users/mricaud/_WORK/_github/mricaud/xml-utilities/src/test/org/mricaud/xml-utilities/get-xfile-dependancies/sch/folder/mod-1.sch">
+      <content>
+         <schema xmlns="http://purl.oclc.org/dsdl/schematron"
+                 xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+  
+            <xsl:include href="../../xsl/module.xsl"/>
+  
+            <pattern>
+               <rule context="/*">
+                  <assert test="true()">Root element</assert>
+               </rule>
+            </pattern>
+  
+         </schema>
+      </content>
+      <file dependency-type="xsl:include"
+            name="module.xsl"
+            uri="../../xsl/module.xsl"
+            abs-uri="file:/C:/Users/mricaud/_WORK/_github/mricaud/xml-utilities/src/test/org/mricaud/xml-utilities/get-xfile-dependancies/xsl/module.xsl"
+            _version="2.0">
+         <report role="info" code="duplicatedDependency">This file has already been processed</report>
+      </file>
+   </file>
+</file>

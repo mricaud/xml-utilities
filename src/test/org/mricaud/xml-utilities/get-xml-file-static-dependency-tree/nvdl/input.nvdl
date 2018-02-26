@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rules 
+  xmlns="http://purl.oclc.org/dsdl/nvdl/ns/structure/1.0"
+  xmlns:xi="http://www.w3.org/2003/XInclude"
+  startMode="start">
+  
+  <mode name="start">
+    <namespace ns="http://ns1">
+      <validate schema="../rng/module.rng"/>
+      <validate schema="../xsd/module.xsd"/>
+      <validate schema="res/test.rnc" schemaType="application/relax-ng-compact-syntax"/>
+      <validate schema="test.rnc" schemaType="application/relax-ng-compact-syntax"/>
+      <validate schema="res/test.dtd"/>
+      <validate schema="../sch/folder/mod-1.sch"/>
+    </namespace>
+  </mode>
+  
+  <xi:include href="attach.nvdl"/>
+  
+</rules>

@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<file name="input.rng"
+      abs-uri="file:/C:/Users/mricaud/_WORK/_github/mricaud/xml-utilities/src/test/org/mricaud/xml-utilities/get-xml-file-static-dependency-tree/rng/input.rng">
+   <content>
+      <grammar xmlns="http://relaxng.org/ns/structure/1.0"
+               xmlns:sch="http://www.ascc.net/xml/schematron">
+  
+         <include href="folder/mod-1.rng"/>
+  
+         <start combine="choice">
+            <ref name="root"/>
+         </start>
+
+         <define name="root">
+            <element name="root">
+               <sch:extends href="../sch/folder/mod-2.sch"/>
+               <externalRef href="folder/mod-2.rng"/>
+            </element>
+         </define>
+  
+      </grammar>
+   </content>
+   <file dependency-type="include"
+         name="mod-1.rng"
+         uri="folder/mod-1.rng"
+         abs-uri="file:/C:/Users/mricaud/_WORK/_github/mricaud/xml-utilities/src/test/org/mricaud/xml-utilities/get-xml-file-static-dependency-tree/rng/folder/mod-1.rng">
+      <content>
+         <grammar xmlns="http://relaxng.org/ns/structure/1.0">
+  
+            <include href="../module.rng">
+               <define name="foo">
+                  <element name="foo">
+                     <externalRef href="mod-2.rng"/>
+                  </element>
+               </define>
+            </include>
+  
+            <start>
+               <choice>
+                  <ref name="foo"/>
+                  <element name="root">
+                     <empty/>
+                  </element>
+               </choice>
+            </start>
+  
+         </grammar>
+      </content>
+      <file dependency-type="include"
+            name="module.rng"
+            uri="../module.rng"
+            abs-uri="file:/C:/Users/mricaud/_WORK/_github/mricaud/xml-utilities/src/test/org/mricaud/xml-utilities/get-xml-file-static-dependency-tree/rng/module.rng">
+         <content>
+            <grammar xmlns="http://relaxng.org/ns/structure/1.0">
+  
+               <define name="foo">
+                  <element name="foo">
+                     <empty/>
+                  </element>
+               </define>
+  
+            </grammar>
+         </content>
+      </file>
+      <file dependency-type="externalRef"
+            name="mod-2.rng"
+            uri="mod-2.rng"
+            abs-uri="file:/C:/Users/mricaud/_WORK/_github/mricaud/xml-utilities/src/test/org/mricaud/xml-utilities/get-xml-file-static-dependency-tree/rng/folder/mod-2.rng">
+         <content>
+            <group xmlns="http://relaxng.org/ns/structure/1.0">
+  
+               <optional>
+                  <attribute name="bar"/>
+               </optional>
+  
+            </group>
+         </content>
+      </file>
+   </file>
+   <file dependency-type="sch:extends"
+         name="mod-2.sch"
+         uri="../sch/folder/mod-2.sch"
+         abs-uri="file:/C:/Users/mricaud/_WORK/_github/mricaud/xml-utilities/src/test/org/mricaud/xml-utilities/get-xml-file-static-dependency-tree/sch/folder/mod-2.sch">
+      <content>
+         <pattern xmlns="http://purl.oclc.org/dsdl/schematron">
+            <rule context="/*">
+               <assert test="true()">Root element</assert>
+            </rule>
+         </pattern>
+      </content>
+   </file>
+   <file dependency-type="externalRef"
+         name="mod-2.rng"
+         uri="folder/mod-2.rng"
+         abs-uri="file:/C:/Users/mricaud/_WORK/_github/mricaud/xml-utilities/src/test/org/mricaud/xml-utilities/get-xml-file-static-dependency-tree/rng/folder/mod-2.rng">
+      <report role="info" code="duplicatedDependency">This file has already been processed</report>
+   </file>
+</file>

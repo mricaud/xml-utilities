@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+
+  <xs:import schemaLocation="folder/mod-1.xsd" namespace="https://github.com/mricaud/xml-utilities"/>
+  <xs:include schemaLocation="folder/mod-2.xsd"/>
+  
+</xs:schema>

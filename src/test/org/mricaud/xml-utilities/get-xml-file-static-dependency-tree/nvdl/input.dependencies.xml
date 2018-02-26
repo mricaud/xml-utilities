@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<file name="input.nvdl"
+      abs-uri="file:/C:/Users/mricaud/_WORK/_github/mricaud/xml-utilities/src/test/org/mricaud/xml-utilities/get-xml-file-static-dependency-tree/nvdl/input.nvdl">
+   <content>
+      <rules xmlns="http://purl.oclc.org/dsdl/nvdl/ns/structure/1.0"
+             xmlns:xi="http://www.w3.org/2003/XInclude"
+             startMode="start">
+  
+         <mode name="start">
+            <namespace ns="http://ns1">
+               <validate schema="../rng/module.rng"/>
+               <validate schema="../xsd/module.xsd"/>
+               <validate schema="res/test.rnc" schemaType="application/relax-ng-compact-syntax"/>
+               <validate schema="test.rnc" schemaType="application/relax-ng-compact-syntax"/>
+               <validate schema="res/test.dtd"/>
+               <validate schema="../sch/folder/mod-1.sch"/>
+            </namespace>
+         </mode>
+  
+         <xi:include href="attach.nvdl"/>
+  
+      </rules>
+   </content>
+   <file dependency-type="validate"
+         name="module.rng"
+         uri="../rng/module.rng"
+         abs-uri="file:/C:/Users/mricaud/_WORK/_github/mricaud/xml-utilities/src/test/org/mricaud/xml-utilities/get-xml-file-static-dependency-tree/rng/module.rng">
+      <content>
+         <grammar xmlns="http://relaxng.org/ns/structure/1.0">
+  
+            <define name="foo">
+               <element name="foo">
+                  <empty/>
+               </element>
+            </define>
+  
+         </grammar>
+      </content>
+   </file>
+   <file dependency-type="validate"
+         name="module.xsd"
+         uri="../xsd/module.xsd"
+         abs-uri="file:/C:/Users/mricaud/_WORK/_github/mricaud/xml-utilities/src/test/org/mricaud/xml-utilities/get-xml-file-static-dependency-tree/xsd/module.xsd">
+      <content>
+         <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+  
+</xs:schema>
+      </content>
+   </file>
+   <file name="test.rnc"
+         abs-uri="file:/C:/Users/mricaud/_WORK/_github/mricaud/xml-utilities/src/test/org/mricaud/xml-utilities/get-xml-file-static-dependency-tree/nvdl/res/test.rnc"
+         dependency-type="validate">
+      <report role="warning" code="xut:docIsNotAvailableAsXML">document is not available as XML: sub-dependencies will not be analyzed</report>
+      <content>datatypes xsd = "http://www.w3.org/2001/XMLSchema-datatypes"
+
+element test { xsd:double }
+</content>
+   </file>
+   <file name="test.rnc" dependency-type="validate">
+      <report role="error" code="xut:docIsNotAvailable">document is not available:  file:/C:/Users/mricaud/_WORK/_github/mricaud/xml-utilities/src/test/org/mricaud/xml-utilities/get-xml-file-static-dependency-tree/nvdl/test.rnc</report>
+   </file>
+   <file name="test.dtd"
+         abs-uri="file:/C:/Users/mricaud/_WORK/_github/mricaud/xml-utilities/src/test/org/mricaud/xml-utilities/get-xml-file-static-dependency-tree/nvdl/res/test.dtd"
+         dependency-type="validate">
+      <report role="warning" code="xut:docIsNotAvailableAsXML">document is not available as XML: sub-dependencies will not be analyzed</report>
+      <content>&lt;?xml version="1.0" encoding="iso-8859-1"?&gt;
+&lt;!ELEMENT root EMPTY&gt;</content>
+   </file>
+   <file dependency-type="validate"
+         name="mod-1.sch"
+         uri="../sch/folder/mod-1.sch"
+         abs-uri="file:/C:/Users/mricaud/_WORK/_github/mricaud/xml-utilities/src/test/org/mricaud/xml-utilities/get-xml-file-static-dependency-tree/sch/folder/mod-1.sch">
+      <content>
+         <schema xmlns="http://purl.oclc.org/dsdl/schematron"
+                 xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+  
+            <xsl:include href="../../xsl/module.xsl"/>
+  
+            <pattern>
+               <rule context="/*">
+                  <assert test="true()">Root element</assert>
+               </rule>
+            </pattern>
+  
+         </schema>
+      </content>
+      <file dependency-type="xsl:include"
+            name="module.xsl"
+            uri="../../xsl/module.xsl"
+            abs-uri="file:/C:/Users/mricaud/_WORK/_github/mricaud/xml-utilities/src/test/org/mricaud/xml-utilities/get-xml-file-static-dependency-tree/xsl/module.xsl"
+            _version="2.0">
+         <content>
+            <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+                            xmlns:xs="http://www.w3.org/2001/XMLSchema"
+                            exclude-result-prefixes="xs"
+                            version="2.0">
+  
+               <xsl:template match="node() | @*">
+                  <xsl:copy>
+                     <xsl:apply-templates select="node() | @*"/>
+                  </xsl:copy>
+               </xsl:template>
+  
+            </xsl:stylesheet>
+         </content>
+      </file>
+   </file>
+   <file dependency-type="xi:include"
+         name="attach.nvdl"
+         uri="attach.nvdl"
+         abs-uri="file:/C:/Users/mricaud/_WORK/_github/mricaud/xml-utilities/src/test/org/mricaud/xml-utilities/get-xml-file-static-dependency-tree/nvdl/attach.nvdl">
+      <content>
+         <mode xmlns="http://purl.oclc.org/dsdl/nvdl/ns/structure/1.0" name="unAttach">
+            <anyNamespace>
+               <allow/>
+            </anyNamespace>
+         </mode>
+      </content>
+   </file>
+</file>

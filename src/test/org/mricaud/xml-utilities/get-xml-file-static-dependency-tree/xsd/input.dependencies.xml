@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<file name="input.xsd"
+      abs-uri="file:/C:/Users/mricaud/_WORK/_github/mricaud/xml-utilities/src/test/org/mricaud/xml-utilities/get-xml-file-static-dependency-tree/xsd/input.xsd">
+   <content>
+      <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+         <xs:import schemaLocation="folder/mod-1.xsd"
+                    namespace="https://github.com/mricaud/xml-utilities"/>
+         <xs:include schemaLocation="folder/mod-2.xsd"/>
+      </xs:schema>
+   </content>
+   <file dependency-type="xs:import"
+         name="mod-1.xsd"
+         uri="folder/mod-1.xsd"
+         abs-uri="file:/C:/Users/mricaud/_WORK/_github/mricaud/xml-utilities/src/test/org/mricaud/xml-utilities/get-xml-file-static-dependency-tree/xsd/folder/mod-1.xsd">
+      <content>
+         <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+                    targetNamespace="https://github.com/mricaud/xml-utilities">
+  
+</xs:schema>
+      </content>
+   </file>
+   <file dependency-type="xs:include"
+         name="mod-2.xsd"
+         uri="folder/mod-2.xsd"
+         abs-uri="file:/C:/Users/mricaud/_WORK/_github/mricaud/xml-utilities/src/test/org/mricaud/xml-utilities/get-xml-file-static-dependency-tree/xsd/folder/mod-2.xsd">
+      <content>
+         <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+            <xs:include schemaLocation="../module.xsd"/>
+         </xs:schema>
+      </content>
+      <file dependency-type="xs:include"
+            name="module.xsd"
+            uri="../module.xsd"
+            abs-uri="file:/C:/Users/mricaud/_WORK/_github/mricaud/xml-utilities/src/test/org/mricaud/xml-utilities/get-xml-file-static-dependency-tree/xsd/module.xsd">
+         <content>
+            <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+  
+</xs:schema>
+         </content>
+      </file>
+   </file>
+</file>

@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?><html xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+      <title>input.xpl dependency tree</title><style type="text/css">
+          
+            body{font-family:sans-serif;}
+            li{list-style-type:square; margin-top:1em;}
+            .dependency-type{color:grey;}
+            .specific-attributes{color:grey; font-size:0.85em;}
+            .content{padding:0.5em;border:1px solid grey;color:grey;overflow: auto;}
+            .report.error{color:red;}
+            .report.warning{color:orange;}
+            .report.info{color:lightblue;}
+          
+        </style></head>
+   <body>
+      <h3>input.xpl dependency tree</h3>
+      <ul>
+         <li><a href="file:/C:/Users/mricaud/_WORK/_github/mricaud/xml-utilities/src/test/org/mricaud/xml-utilities/get-xml-file-static-dependency-tree/xpl/input.xpl"><strong>input.xpl</strong></a><pre class="content">&lt;p:declare-step xmlns:p="http://www.w3.org/ns/xproc" xmlns:c="http://www.w3.org/ns/xproc-step" version="1.0"&gt;
+  
+  &lt;p:input port="source"/&gt;
+  &lt;p:output port="result"/&gt;
+  
+  &lt;p:import href="http://xmlcalabash.com/extension/steps/library-1.0.xpl"/&gt;
+  &lt;p:import href="folder/mod-1.xpl" xml:base="/my/absolute/path/"/&gt;
+  &lt;p:import href="mod-1.xpl" xml:base="folder/"/&gt;
+  &lt;p:import href="folder/mod-2.xpl"/&gt;
+  
+  &lt;p:load href="../xi-include/folder/elements.xml"/&gt;
+  
+  &lt;p:xslt&gt;
+    &lt;p:input port="stylesheet"&gt;
+      &lt;p:document href="../xsl/folder/mod-1.xsl"/&gt;
+    &lt;/p:input&gt;
+  &lt;/p:xslt&gt;
+  
+  &lt;p:validate-with-xml-schema&gt;
+    &lt;p:input port="schema"&gt;
+      &lt;p:document href="../xsd/folder/mod-2.xsd"/&gt;
+    &lt;/p:input&gt;
+  &lt;/p:validate-with-xml-schema&gt;
+  
+&lt;/p:declare-step&gt;</pre><ul>
+               <li><a href=""><strong>mod-1.xpl</strong></a><span class="dependency-type"> p:import</span><div class="report error"><strong>ERROR</strong>: document is not available:  file:/my/absolute/path/folder/mod-1.xpl
+                  </div>
+               </li>
+               <li><a href="file:/C:/Users/mricaud/_WORK/_github/mricaud/xml-utilities/src/test/org/mricaud/xml-utilities/get-xml-file-static-dependency-tree/xpl/folder/mod-1.xpl"><strong>mod-1.xpl</strong></a><span class="dependency-type"> p:import</span><pre class="content">&lt;p:library xmlns:p="http://www.w3.org/ns/xproc" xmlns:c="http://www.w3.org/ns/xproc-step" version="1.0"&gt;
+  &lt;p:import href="../module.xpl"/&gt;
+&lt;/p:library&gt;</pre><ul>
+                     <li><a href="file:/C:/Users/mricaud/_WORK/_github/mricaud/xml-utilities/src/test/org/mricaud/xml-utilities/get-xml-file-static-dependency-tree/xpl/module.xpl">../<strong>module.xpl</strong></a><span class="dependency-type"> p:import</span><pre class="content">&lt;p:library xmlns:p="http://www.w3.org/ns/xproc" version="1.0"/&gt;</pre></li>
+                  </ul>
+               </li>
+               <li><a href="file:/C:/Users/mricaud/_WORK/_github/mricaud/xml-utilities/src/test/org/mricaud/xml-utilities/get-xml-file-static-dependency-tree/xpl/folder/mod-2.xpl">folder/<strong>mod-2.xpl</strong></a><span class="dependency-type"> p:import</span><pre class="content">&lt;p:library xmlns:p="http://www.w3.org/ns/xproc" xmlns:c="http://www.w3.org/ns/xproc-step" version="1.0"&gt;
+  &lt;p:import href="./mod-1.xpl"/&gt;
+  &lt;p:import href="./mod-2.xpl"/&gt;
+&lt;/p:library&gt;</pre><ul>
+                     <li><a href="file:/C:/Users/mricaud/_WORK/_github/mricaud/xml-utilities/src/test/org/mricaud/xml-utilities/get-xml-file-static-dependency-tree/xpl/folder/mod-1.xpl">./<strong>mod-1.xpl</strong></a><span class="dependency-type"> p:import</span><div class="report info"><strong>INFO</strong>: This file has already been processed
+                        </div>
+                     </li>
+                     <li><a href=""><strong>mod-2.xpl</strong></a><div class="report warning"><strong>WARNING</strong>: Circular ref to  file:/C:/Users/mricaud/_WORK/_github/mricaud/xml-utilities/src/test/org/mricaud/xml-utilities/get-xml-file-static-dependency-tree/xpl/folder/mod-2.xpl
+                        </div>
+                     </li>
+                  </ul>
+               </li>
+               <li><a href="file:/C:/Users/mricaud/_WORK/_github/mricaud/xml-utilities/src/test/org/mricaud/xml-utilities/get-xml-file-static-dependency-tree/xi-include/folder/elements.xml">../xi-include/folder/<strong>elements.xml</strong></a><span class="dependency-type"> p:load</span><pre class="content">&lt;elements xmlns:xi="http://www.w3.org/2003/XInclude"&gt;
+  &lt;element id="e1"/&gt;
+  &lt;element id="e2"/&gt;
+  &lt;xi:inlude href="e3.xml"&gt;
+    &lt;xi:fallback&gt;
+      &lt;xi:include href="fallback.xml"&gt;
+        &lt;xi:fallback&gt;
+          &lt;element id="e3-fallback"/&gt;
+        &lt;/xi:fallback&gt;
+      &lt;/xi:include&gt;
+    &lt;/xi:fallback&gt;
+  &lt;/xi:inlude&gt;
+&lt;/elements&gt;</pre><ul>
+                     <li><a href="file:/C:/Users/mricaud/_WORK/_github/mricaud/xml-utilities/src/test/org/mricaud/xml-utilities/get-xml-file-static-dependency-tree/xi-include/folder/fallback.xml"><strong>fallback.xml</strong></a><span class="dependency-type"> xi:include</span><pre class="content">&lt;my-fallback/&gt;</pre></li>
+                  </ul>
+               </li>
+               <li><a href="file:/C:/Users/mricaud/_WORK/_github/mricaud/xml-utilities/src/test/org/mricaud/xml-utilities/get-xml-file-static-dependency-tree/xsl/folder/mod-1.xsl">../xsl/folder/<strong>mod-1.xsl</strong></a><span class="dependency-type"> p:document</span><br /><span class="specific-attributes"> version="2.0"</span><pre class="content">&lt;xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xs="http://www.w3.org/2001/XMLSchema" exclude-result-prefixes="xs" version="2.0"&gt;
+  
+  &lt;xsl:import href="../module.xsl"/&gt;
+  
+&lt;/xsl:stylesheet&gt;</pre><ul>
+                     <li><a href="file:/C:/Users/mricaud/_WORK/_github/mricaud/xml-utilities/src/test/org/mricaud/xml-utilities/get-xml-file-static-dependency-tree/xsl/module.xsl">../<strong>module.xsl</strong></a><span class="dependency-type"> xsl:import</span><br /><span class="specific-attributes"> version="2.0"</span><pre class="content">&lt;xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xs="http://www.w3.org/2001/XMLSchema" exclude-result-prefixes="xs" version="2.0"&gt;
+  
+  &lt;xsl:template match="node() | @*"&gt;
+    &lt;xsl:copy&gt;
+      &lt;xsl:apply-templates select="node() | @*"/&gt;
+    &lt;/xsl:copy&gt;
+  &lt;/xsl:template&gt;
+  
+&lt;/xsl:stylesheet&gt;</pre></li>
+                  </ul>
+               </li>
+               <li><a href="file:/C:/Users/mricaud/_WORK/_github/mricaud/xml-utilities/src/test/org/mricaud/xml-utilities/get-xml-file-static-dependency-tree/xsd/folder/mod-2.xsd">../xsd/folder/<strong>mod-2.xsd</strong></a><span class="dependency-type"> p:document</span><pre class="content">&lt;xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"&gt;
+  &lt;xs:include schemaLocation="../module.xsd"/&gt;
+&lt;/xs:schema&gt;</pre><ul>
+                     <li><a href="file:/C:/Users/mricaud/_WORK/_github/mricaud/xml-utilities/src/test/org/mricaud/xml-utilities/get-xml-file-static-dependency-tree/xsd/module.xsd">../<strong>module.xsd</strong></a><span class="dependency-type"> xs:include</span><pre class="content">&lt;xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"&gt;
+  
+&lt;/xs:schema&gt;</pre></li>
+                  </ul>
+               </li>
+            </ul>
+         </li>
+      </ul>
+   </body>
+</html>

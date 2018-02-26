@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?><html xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+      <title>input.sch dependency tree</title><style type="text/css">
+          
+            body{font-family:sans-serif;}
+            li{list-style-type:square; margin-top:1em;}
+            .dependency-type{color:grey;}
+            .specific-attributes{color:grey; font-size:0.85em;}
+            .content{padding:0.5em;border:1px solid grey;color:grey;overflow: auto;}
+            .report.error{color:red;}
+            .report.warning{color:orange;}
+            .report.info{color:lightblue;}
+          
+        </style></head>
+   <body>
+      <h3>input.sch dependency tree</h3>
+      <ul>
+         <li><a href="file:/C:/Users/mricaud/_WORK/_github/mricaud/xml-utilities/src/test/org/mricaud/xml-utilities/get-xfile-dependancies/sch/input.sch"><strong>input.sch</strong></a><br /><span class="specific-attributes"> queryBinding="xslt2" defaultPhase="test"</span><pre class="content">&lt;schema xmlns="http://purl.oclc.org/dsdl/schematron" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" queryBinding="xslt2" see="readme.txt" defaultPhase="test"&gt;
+
+  &lt;xsl:include href="../xsl/module.xsl"/&gt;
+  
+  &lt;!--see https://www.oxygenxml.com/forum/topic6804.html--&gt;
+  &lt;extends href="folder/mod-1.sch"/&gt;
+  
+  &lt;phase id="test"&gt;
+    &lt;active pattern="test-1"/&gt;
+  &lt;/phase&gt;
+  
+  &lt;include href="folder/mod-2.sch"/&gt;
+  
+  &lt;pattern id="test-1"&gt;
+    &lt;rule context="/*"&gt;
+      &lt;assert test="true()"&gt;Root element&lt;/assert&gt;
+    &lt;/rule&gt;
+  &lt;/pattern&gt;
+
+&lt;/schema&gt;</pre><ul>
+               <li><a href="file:/C:/Users/mricaud/_WORK/_github/mricaud/xml-utilities/src/test/org/mricaud/xml-utilities/get-xfile-dependancies/xsl/module.xsl">../xsl/<strong>module.xsl</strong></a><span class="dependency-type"> xsl:include</span><br /><span class="specific-attributes"> version="2.0"</span><pre class="content">&lt;xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xs="http://www.w3.org/2001/XMLSchema" exclude-result-prefixes="xs" version="2.0"&gt;
+  
+  &lt;xsl:template match="node() | @*"&gt;
+    &lt;xsl:copy&gt;
+      &lt;xsl:apply-templates select="node() | @*"/&gt;
+    &lt;/xsl:copy&gt;
+  &lt;/xsl:template&gt;
+  
+&lt;/xsl:stylesheet&gt;</pre></li>
+               <li><a href="file:/C:/Users/mricaud/_WORK/_github/mricaud/xml-utilities/src/test/org/mricaud/xml-utilities/get-xfile-dependancies/sch/folder/mod-1.sch">folder/<strong>mod-1.sch</strong></a><span class="dependency-type"> extends</span><pre class="content">&lt;schema xmlns="http://purl.oclc.org/dsdl/schematron" xmlns:xsl="http://www.w3.org/1999/XSL/Transform"&gt;
+  
+  &lt;xsl:include href="../../xsl/module.xsl"/&gt;
+  
+  &lt;pattern&gt;
+    &lt;rule context="/*"&gt;
+      &lt;assert test="true()"&gt;Root element&lt;/assert&gt;
+    &lt;/rule&gt;
+  &lt;/pattern&gt;
+  
+&lt;/schema&gt;</pre><ul>
+                     <li><a href="file:/C:/Users/mricaud/_WORK/_github/mricaud/xml-utilities/src/test/org/mricaud/xml-utilities/get-xfile-dependancies/xsl/module.xsl">../../xsl/<strong>module.xsl</strong></a><span class="dependency-type"> xsl:include</span><br /><span class="specific-attributes"> version="2.0"</span><div class="report info"><strong>INFO</strong>: This file has already been processed
+                        </div>
+                     </li>
+                  </ul>
+               </li>
+            </ul>
+         </li>
+      </ul>
+   </body>
+</html>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<elements xmlns:xi="http://www.w3.org/2003/XInclude">
+  <element id="e1"/>
+  <element id="e2"/>
+  <xi:inlude href="e3.xml">
+    <xi:fallback>
+      <xi:include href="fallback.xml">
+        <xi:fallback>
+          <element id="e3-fallback"/>
+        </xi:fallback>
+      </xi:include>
+    </xi:fallback>
+  </xi:inlude>
+</elements>

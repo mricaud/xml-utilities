@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<grammar xmlns="http://relaxng.org/ns/structure/1.0">
+  
+  <include href="../module.rng">
+    <define name="foo">
+      <element name="foo">
+        <externalRef href="mod-2.rng"/>
+      </element>
+    </define>
+  </include>
+  
+  <start>
+    <choice>
+      <ref name="foo"/>
+      <element name="root">
+        <empty/>
+      </element>
+    </choice>
+  </start>
+  
+</grammar>
