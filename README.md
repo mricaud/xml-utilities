@@ -3,7 +3,7 @@ A set of xml utilities, like xslt common tools etc.
 
 ### get-xml-file-static-dependency-tree.xsl
 
-This xslt generates an XML file which shows all static xml dependencies as a tree:
+This xslt takes any xml based input and generates an XML ouptut that shows all *static* xml dependencies (inclusions) as a tree:
 
 ```xml
 <file name="input.xsl" abs-uri="file:/.../input.xsl" _version="3.0">
@@ -12,9 +12,9 @@ This xslt generates an XML file which shows all static xml dependencies as a tre
   </file>
 </file>
 ```
-It aims at working with every kind of XML based files.
+It aims at working with any kind of XML based files.
 
-At the moment, the kind of dependencies that are processed are:
+At the moment, it works with these kind of dependencies:
 
 - xi:include
 - XSLT
@@ -24,7 +24,7 @@ At the moment, the kind of dependencies that are processed are:
 - Schematron (1.5 and iso-schematron)
 - NVDL
 
-And of course it works all together (for example: an XPROC that load an XSLT which contains an xi:include)
+And of course it works all together (for example: an XPROC that loads an XSLT which contains an xi:include)
 
 Please see the `test` directory to see examples.
 
@@ -34,12 +34,14 @@ The XSLT is also able to output the result as an HTML file so it's more easy to 
 
 ![README.res/SimpleDependencyTreeHtml.jpg](README.res/SimpleDependencyTreeHtml.jpg)
 
-It's possible to add extra informations like `version` depending on each kind of file.
+It's possible to add extra informations like the `version` attribute above, depending on each kind of file.
 
 With both outputs (XML / HTML) it's possible to gather the content of each file (without duplication if a file is included several times):
 
 ![README.res/WithContentDependencyTreeHtml.jpg](README.res/WithContentDependencyTreeHtml.jpg)
 
-> CAUTION: this XSLT only works with static dependencies declared in each XML files. 
+> **CAUTION**: this XSLT only works with static dependencies declared in each XML files. 
 > 
 > For instance, if an XPROC script loads an XML file dynamicaly (by getting its uri with xpath) then the dependency won't be shown in the dependency tree.
+
+This repo will probably be published as a Maven artefact soon. It includes a copy of functx.xsl today, but it could becomes a Maven dependency.
