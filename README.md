@@ -1,9 +1,9 @@
 # xml-utilities
-A set of xml utilities, like xslt common tools etc.
+A set of XML utilities, like XSLT common tools etc.
 
 ### get-xml-file-static-dependency-tree.xsl
 
-This xslt takes any xml based input and generates an XML ouptut that shows all *static* xml dependencies (inclusions) as a tree:
+This XSLT takes any XML based input and generates an XML ouptut that shows all *static* XML dependencies (inclusions) as a tree:
 
 ```xml
 <file name="input.xsl" abs-uri="file:/.../input.xsl" _version="3.0">
@@ -28,7 +28,7 @@ And of course it works all together (for example: an XPROC that loads an XSLT wh
 
 Please see the `test` directory to see examples.
 
-The dependency tree is created by reading each file recursively. When an non-xml file is encountered (like an Relax NG compact Syntax or a DTD within a NVDL script) the recusrsion stops.
+The dependency tree is created by reading each file recursively. When an non-XML file is encountered (like an Relax NG compact Syntax or a DTD within a NVDL script) the recursion stops.
 
 The XSLT is also able to output the result as an HTML file so it's more easy to read:
 
