@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<file name="input-2.xspec"
+      abs-uri="file:/home/ext-cmarchand/devel/github/xml-utilities/src/test/org/mricaud/xml-utilities/get-xml-file-static-dependency-tree/xspec/input-2.xspec">
+   <content>
+      <x:description xmlns:x="http://www.jenitennison.com/xslt/xspec"
+                     query="top:marchand:xml:xquery"
+                     query-at="xquery.xq">
+  
+         <x:scenario label="main">
+            <x:context href="data-in.xml"/>
+            <x:expect label="the same" href="data-out.xml"/>
+         </x:scenario>
+      </x:description>
+   </content>
+   <file name="xquery.xq"
+         abs-uri="file:/home/ext-cmarchand/devel/github/xml-utilities/src/test/org/mricaud/xml-utilities/get-xml-file-static-dependency-tree/xspec/xquery.xq"
+         dependency-type="x:description">
+      <report role="warning" code="xut:docIsNotAvailableAsXML">document is not available as XML: sub-dependencies will not be analyzed</report>
+      <content>xquery version "3.0";
+
+for $f in /* return $f
+</content>
+      <file dependency-type="x:context"
+            name="data-in.xml"
+            uri="data-in.xml"
+            abs-uri="file:/home/ext-cmarchand/devel/github/xml-utilities/src/test/org/mricaud/xml-utilities/get-xml-file-static-dependency-tree/xspec/data-in.xml">
+         <content>
+            <data/>
+         </content>
+      </file>
+      <file dependency-type="x:expect"
+            name="data-out.xml"
+            uri="data-out.xml"
+            abs-uri="file:/home/ext-cmarchand/devel/github/xml-utilities/src/test/org/mricaud/xml-utilities/get-xml-file-static-dependency-tree/xspec/data-out.xml">
+         <content>
+            <data/>
+         </content>
+      </file>
+   </file>
+</file>

@@ -12,6 +12,7 @@
   xmlns:iso-sch="http://purl.oclc.org/dsdl/schematron"
   xmlns:sch="http://www.ascc.net/xml/schematron"
   xmlns:p="http://www.w3.org/ns/xproc"  
+  xmlns:xspec="http://www.jenitennison.com/xslt/xspec"
   version="3.0"
   exclude-result-prefixes="#all">
 
@@ -155,6 +156,8 @@
               </xsl:if>
               <report role="warning" code="xut:docIsNotAvailableAsXML"><xsl:value-of select="$error.msg"/></report>
               <xsl:message>[WARNING] <xsl:value-of select="$error.msg"/></xsl:message>
+              <!--In some special case an inclusion can contains another inclusion (e.g. rng:include with rng:externalRef inside)-->
+              <xsl:apply-templates mode="#current"/>
             </file>
           </xsl:when>
           <xsl:otherwise>
@@ -164,6 +167,8 @@
                 <xsl:attribute name="dependency-type" select="$dependency-type"/>
               </xsl:if>
               <report role="error" code="xut:docIsNotAvailable"><xsl:value-of select="$error.msg"/></report>
+              <!--In some special case an inclusion can contains another inclusion (e.g. rng:include with rng:externalRef inside)-->
+              <xsl:apply-templates mode="#current"/>
             </file>
             <xsl:message>[ERROR] <xsl:value-of select="$error.msg"/></xsl:message>
           </xsl:otherwise>
@@ -283,6 +288,32 @@
     </xsl:call-template>
   </xsl:template>
   
+  <!--===========================================-->
+  <!-- XSpec depencencies -->
+  <!--===========================================-->
+  
+  <xsl:template match="xspec:context[@href] | xspec:expect[@href]" mode="xut:get-xml-dependency-tree">
+    <xsl:call-template name="xut:get-xml-dependency">
+      <xsl:with-param name="res.attribute" select="@href" as="xs:string"/>
+    </xsl:call-template>
+  </xsl:template>
+  
+  <xsl:template match="xspec:description[@stylesheet]" mode="xut:get-xml-dependency-tree">
+    <xsl:call-template name="xut:get-xml-dependency">
+      <xsl:with-param name="res.attribute" select="@stylesheet" as="xs:string"/>
+    </xsl:call-template>
+  </xsl:template>
+  <xsl:template match="xspec:description[@query-at]" mode="xut:get-xml-dependency-tree">
+    <xsl:call-template name="xut:get-xml-dependency">
+      <xsl:with-param name="res.attribute" select="@query-at" as="xs:string"/>
+    </xsl:call-template>
+  </xsl:template>
+  <xsl:template match="xspec:description[@schematron]" mode="xut:get-xml-dependency-tree">
+    <xsl:call-template name="xut:get-xml-dependency">
+      <xsl:with-param name="res.attribute" select="@schematron" as="xs:string"/>
+    </xsl:call-template>
+  </xsl:template>
+
   <!--===========================================-->
   <!-- DEFAULT -->
   <!--===========================================-->
