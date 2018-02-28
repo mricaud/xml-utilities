@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?><html xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+      <title>input-2.xspec dependency tree</title><style type="text/css">
+          
+            body{font-family:sans-serif;}
+            li{list-style-type:square; margin-top:1em;}
+            .dependency-type{color:grey;}
+            .specific-attributes{color:grey; font-size:0.85em;}
+            .content{padding:0.5em;border:1px solid grey;color:grey;overflow: auto;}
+            .report.error{color:red;}
+            .report.warning{color:orange;}
+            .report.info{color:lightblue;}
+          
+        </style></head>
+   <body>
+      <h3>input-2.xspec dependency tree</h3>
+      <ul>
+         <li><a href="file:/home/ext-cmarchand/devel/github/xml-utilities/src/test/org/mricaud/xml-utilities/get-xml-file-static-dependency-tree/xspec/input-2.xspec"><strong>input-2.xspec</strong></a><pre class="content">&lt;x:description xmlns:x="http://www.jenitennison.com/xslt/xspec" query="top:marchand:xml:xquery" query-at="xquery.xq"&gt;
+  
+  &lt;x:scenario label="main"&gt;
+    &lt;x:context href="data-in.xml"/&gt;
+    &lt;x:expect label="the same" href="data-out.xml"/&gt;
+  &lt;/x:scenario&gt;
+&lt;/x:description&gt;</pre><ul>
+               <li><a href="file:/home/ext-cmarchand/devel/github/xml-utilities/src/test/org/mricaud/xml-utilities/get-xml-file-static-dependency-tree/xspec/xquery.xq"><strong>xquery.xq</strong></a><span class="dependency-type"> x:description</span><div class="report warning"><strong>WARNING</strong>: document is not available as XML: sub-dependencies will not be analyzed
+                  </div><pre class="content">xquery version "3.0";
+
+for $f in /* return $f
+</pre><ul>
+                     <div class="report warning"><strong>WARNING</strong>: document is not available as XML: sub-dependencies will not be analyzed
+                     </div>
+                     <li><a href="file:/home/ext-cmarchand/devel/github/xml-utilities/src/test/org/mricaud/xml-utilities/get-xml-file-static-dependency-tree/xspec/data-in.xml"><strong>data-in.xml</strong></a><span class="dependency-type"> x:context</span><pre class="content">&lt;data/&gt;</pre></li>
+                     <li><a href="file:/home/ext-cmarchand/devel/github/xml-utilities/src/test/org/mricaud/xml-utilities/get-xml-file-static-dependency-tree/xspec/data-out.xml"><strong>data-out.xml</strong></a><span class="dependency-type"> x:expect</span><pre class="content">&lt;data/&gt;</pre></li>
+                  </ul>
+               </li>
+            </ul>
+         </li>
+      </ul>
+   </body>
+</html>

@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<file name="input.dependencies.xhtml"
+      abs-uri="file:/home/ext-cmarchand/devel/github/xml-utilities/src/test/org/mricaud/xml-utilities/get-xml-file-static-dependency-tree/xspec/input.dependencies.xhtml">
+   <content>
+      <html xmlns="http://www.w3.org/1999/xhtml">
+         <head>
+            <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+            <title>input.xspec dependency tree</title>
+            <style type="text/css">
+          
+            body{font-family:sans-serif;}
+            li{list-style-type:square; margin-top:1em;}
+            .dependency-type{color:grey;}
+            .specific-attributes{color:grey; font-size:0.85em;}
+            .content{padding:0.5em;border:1px solid grey;color:grey;overflow: auto;}
+            .report.error{color:red;}
+            .report.warning{color:orange;}
+            .report.info{color:lightblue;}
+          
+        </style>
+         </head>
+         <body>
+            <h3>input.xspec dependency tree</h3>
+            <ul>
+               <li>
+                  <a href="file:/home/ext-cmarchand/devel/github/xml-utilities/src/test/org/mricaud/xml-utilities/get-xml-file-static-dependency-tree/xspec/input.xspec">
+                     <strong>input.xspec</strong>
+                  </a>
+                  <pre class="content">&lt;x:description xmlns:x="http://www.jenitennison.com/xslt/xspec" stylesheet="../xsl/input.xsl"&gt;
+  &lt;x:scenario label="main"&gt;
+    &lt;x:context href="data-in.xml"/&gt;
+    &lt;x:expect label="The same" href="data-out.xml"/&gt;
+  &lt;/x:scenario&gt;
+&lt;/x:description&gt;</pre>
+                  <ul>
+                     <li>
+                        <a href="file:/home/ext-cmarchand/devel/github/xml-utilities/src/test/org/mricaud/xml-utilities/get-xml-file-static-dependency-tree/xsl/input.xsl">../xsl/<strong>input.xsl</strong>
+                        </a>
+                        <span class="dependency-type"> x:description</span>
+                        <br/>
+                        <span class="specific-attributes"> version="2.0"</span>
+                        <pre class="content">&lt;xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xs="http://www.w3.org/2001/XMLSchema" exclude-result-prefixes="xs" version="2.0"&gt;
+  
+  &lt;xsl:import href="module.xsl" xml:base="/my/absolute/path/"/&gt;
+  &lt;xsl:import href="folder/mod-1.xsl"/&gt;
+  &lt;xsl:include href="folder/mod-2.xsl"/&gt;
+  
+&lt;/xsl:stylesheet&gt;</pre>
+                        <ul>
+                           <li>
+                              <a href="">
+                                 <strong>module.xsl</strong>
+                              </a>
+                              <span class="dependency-type"> xsl:import</span>
+                              <div class="report error">
+                                 <strong>ERROR</strong>: document is not available:  file:/my/absolute/path/module.xsl
+                        </div>
+                           </li>
+                           <li>
+                              <a href="file:/home/ext-cmarchand/devel/github/xml-utilities/src/test/org/mricaud/xml-utilities/get-xml-file-static-dependency-tree/xsl/folder/mod-1.xsl">folder/<strong>mod-1.xsl</strong>
+                              </a>
+                              <span class="dependency-type"> xsl:import</span>
+                              <br/>
+                              <span class="specific-attributes"> version="2.0"</span>
+                              <pre class="content">&lt;xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xs="http://www.w3.org/2001/XMLSchema" exclude-result-prefixes="xs" version="2.0"&gt;
+  
+  &lt;xsl:import href="../module.xsl"/&gt;
+  
+&lt;/xsl:stylesheet&gt;</pre>
+                              <ul>
+                                 <li>
+                                    <a href="file:/home/ext-cmarchand/devel/github/xml-utilities/src/test/org/mricaud/xml-utilities/get-xml-file-static-dependency-tree/xsl/module.xsl">../<strong>module.xsl</strong>
+                                    </a>
+                                    <span class="dependency-type"> xsl:import</span>
+                                    <br/>
+                                    <span class="specific-attributes"> version="2.0"</span>
+                                    <pre class="content">&lt;xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xs="http://www.w3.org/2001/XMLSchema" exclude-result-prefixes="xs" version="2.0"&gt;
+  
+  &lt;xsl:template match="node() | @*"&gt;
+    &lt;xsl:copy&gt;
+      &lt;xsl:apply-templates select="node() | @*"/&gt;
+    &lt;/xsl:copy&gt;
+  &lt;/xsl:template&gt;
+  
+&lt;/xsl:stylesheet&gt;</pre>
+                                 </li>
+                              </ul>
+                           </li>
+                           <li>
+                              <a href="file:/home/ext-cmarchand/devel/github/xml-utilities/src/test/org/mricaud/xml-utilities/get-xml-file-static-dependency-tree/xsl/folder/mod-2.xsl">folder/<strong>mod-2.xsl</strong>
+                              </a>
+                              <span class="dependency-type"> xsl:include</span>
+                              <br/>
+                              <span class="specific-attributes"> version="2.0"</span>
+                              <pre class="content">&lt;xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xs="http://www.w3.org/2001/XMLSchema" exclude-result-prefixes="xs" version="2.0"&gt;
+  
+  &lt;xsl:import href="mod-1.xsl"/&gt;
+  
+&lt;/xsl:stylesheet&gt;</pre>
+                              <ul>
+                                 <li>
+                                    <a href="file:/home/ext-cmarchand/devel/github/xml-utilities/src/test/org/mricaud/xml-utilities/get-xml-file-static-dependency-tree/xsl/folder/mod-1.xsl">
+                                       <strong>mod-1.xsl</strong>
+                                    </a>
+                                    <span class="dependency-type"> xsl:import</span>
+                                    <br/>
+                                    <span class="specific-attributes"> version="2.0"</span>
+                                    <div class="report info">
+                                       <strong>INFO</strong>: This file has already been processed
+                              </div>
+                                 </li>
+                              </ul>
+                           </li>
+                        </ul>
+                     </li>
+                     <li>
+                        <a href="file:/home/ext-cmarchand/devel/github/xml-utilities/src/test/org/mricaud/xml-utilities/get-xml-file-static-dependency-tree/xspec/data-in.xml">
+                           <strong>data-in.xml</strong>
+                        </a>
+                        <span class="dependency-type"> x:context</span>
+                        <pre class="content">&lt;data/&gt;</pre>
+                     </li>
+                     <li>
+                        <a href="file:/home/ext-cmarchand/devel/github/xml-utilities/src/test/org/mricaud/xml-utilities/get-xml-file-static-dependency-tree/xspec/data-out.xml">
+                           <strong>data-out.xml</strong>
+                        </a>
+                        <span class="dependency-type"> x:expect</span>
+                        <pre class="content">&lt;data/&gt;</pre>
+                     </li>
+                  </ul>
+               </li>
+            </ul>
+         </body>
+      </html>
+   </content>
+</file>
