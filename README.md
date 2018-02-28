@@ -23,6 +23,7 @@ At the moment, it works with these kind of dependencies:
 - Relax NG
 - Schematron (1.5 and iso-schematron)
 - NVDL
+- -XSpec
 
 And of course it works all together (for example: an XPROC that loads an XSLT which contains an xi:include)
 

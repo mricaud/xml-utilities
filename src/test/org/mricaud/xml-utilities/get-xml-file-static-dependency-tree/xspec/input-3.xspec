@@ -4,8 +4,8 @@
   schematron="../sch/input.sch">
   
   <x:scenario label="main">
-    <x:context href="data-in.xml"/>
-    <x:expect label="same" href="data-out.xml"/>
+    <x:context href="res/data-in.xml"/>
+    <x:expect label="The same" href="res/data-out.xml"/>
   </x:scenario>
   
 </x:description>

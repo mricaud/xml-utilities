@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <file name="input-3.xspec"
-      abs-uri="file:/home/ext-cmarchand/devel/github/xml-utilities/src/test/org/mricaud/xml-utilities/get-xml-file-static-dependency-tree/xspec/input-3.xspec">
+      abs-uri="file:/C:/Users/mricaud/_WORK/_github/mricaud/xml-utilities/src/test/org/mricaud/xml-utilities/get-xml-file-static-dependency-tree/xspec/input-3.xspec">
    <content>
       <x:description xmlns:x="http://www.jenitennison.com/xslt/xspec"
                      schematron="../sch/input.sch">
   
          <x:scenario label="main">
-            <x:context href="data-in.xml"/>
-            <x:expect label="same" href="data-out.xml"/>
+            <x:context href="res/data-in.xml"/>
+            <x:expect label="The same" href="res/data-out.xml"/>
          </x:scenario>
   
       </x:description>
@@ -15,7 +15,7 @@
    <file dependency-type="x:description"
          name="input.sch"
          uri="../sch/input.sch"
-         abs-uri="file:/home/ext-cmarchand/devel/github/xml-utilities/src/test/org/mricaud/xml-utilities/get-xml-file-static-dependency-tree/sch/input.sch"
+         abs-uri="file:/C:/Users/mricaud/_WORK/_github/mricaud/xml-utilities/src/test/org/mricaud/xml-utilities/get-xml-file-static-dependency-tree/sch/input.sch"
          _queryBinding="xslt2"
          _defaultPhase="test">
       <content>
@@ -44,65 +44,81 @@
 
          </schema>
       </content>
+      <file name="readme.txt" dependency-type="schema">
+         <report role="error" code="xut:docIsNotAvailable">document is not available:  file:/C:/Users/mricaud/_WORK/_github/mricaud/xml-utilities/src/test/org/mricaud/xml-utilities/get-xml-file-static-dependency-tree/sch/readme.txt</report>
+         <file dependency-type="xsl:include"
+               name="module.xsl"
+               uri="../xsl/module.xsl"
+               abs-uri="file:/C:/Users/mricaud/_WORK/_github/mricaud/xml-utilities/src/test/org/mricaud/xml-utilities/get-xml-file-static-dependency-tree/xsl/module.xsl"
+               _version="2.0">
+            <content>
+               <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+                               xmlns:xs="http://www.w3.org/2001/XMLSchema"
+                               exclude-result-prefixes="xs"
+                               version="2.0">
+  
+                  <xsl:template match="node() | @*">
+                     <xsl:copy>
+                        <xsl:apply-templates select="node() | @*"/>
+                     </xsl:copy>
+                  </xsl:template>
+  
+               </xsl:stylesheet>
+            </content>
+         </file>
+         <file dependency-type="extends"
+               name="mod-1.sch"
+               uri="folder/mod-1.sch"
+               abs-uri="file:/C:/Users/mricaud/_WORK/_github/mricaud/xml-utilities/src/test/org/mricaud/xml-utilities/get-xml-file-static-dependency-tree/sch/folder/mod-1.sch">
+            <content>
+               <schema xmlns="http://purl.oclc.org/dsdl/schematron"
+                       xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+  
+                  <xsl:include href="../../xsl/module.xsl"/>
+  
+                  <pattern>
+                     <rule context="/*">
+                        <assert test="true()">Root element</assert>
+                     </rule>
+                  </pattern>
+  
+               </schema>
+            </content>
+            <file dependency-type="xsl:include"
+                  name="module.xsl"
+                  uri="../../xsl/module.xsl"
+                  abs-uri="file:/C:/Users/mricaud/_WORK/_github/mricaud/xml-utilities/src/test/org/mricaud/xml-utilities/get-xml-file-static-dependency-tree/xsl/module.xsl"
+                  _version="2.0">
+               <report role="info" code="duplicatedDependency">This file has already been processed</report>
+            </file>
+         </file>
+      </file>
       <file dependency-type="xsl:include"
             name="module.xsl"
             uri="../xsl/module.xsl"
-            abs-uri="file:/home/ext-cmarchand/devel/github/xml-utilities/src/test/org/mricaud/xml-utilities/get-xml-file-static-dependency-tree/xsl/module.xsl"
+            abs-uri="file:/C:/Users/mricaud/_WORK/_github/mricaud/xml-utilities/src/test/org/mricaud/xml-utilities/get-xml-file-static-dependency-tree/xsl/module.xsl"
             _version="2.0">
-         <content>
-            <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-                            xmlns:xs="http://www.w3.org/2001/XMLSchema"
-                            exclude-result-prefixes="xs"
-                            version="2.0">
-  
-               <xsl:template match="node() | @*">
-                  <xsl:copy>
-                     <xsl:apply-templates select="node() | @*"/>
-                  </xsl:copy>
-               </xsl:template>
-  
-            </xsl:stylesheet>
-         </content>
+         <report role="info" code="duplicatedDependency">This file has already been processed</report>
       </file>
       <file dependency-type="extends"
             name="mod-1.sch"
             uri="folder/mod-1.sch"
-            abs-uri="file:/home/ext-cmarchand/devel/github/xml-utilities/src/test/org/mricaud/xml-utilities/get-xml-file-static-dependency-tree/sch/folder/mod-1.sch">
-         <content>
-            <schema xmlns="http://purl.oclc.org/dsdl/schematron"
-                    xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
-  
-               <xsl:include href="../../xsl/module.xsl"/>
-  
-               <pattern>
-                  <rule context="/*">
-                     <assert test="true()">Root element</assert>
-                  </rule>
-               </pattern>
-  
-            </schema>
-         </content>
-         <file dependency-type="xsl:include"
-               name="module.xsl"
-               uri="../../xsl/module.xsl"
-               abs-uri="file:/home/ext-cmarchand/devel/github/xml-utilities/src/test/org/mricaud/xml-utilities/get-xml-file-static-dependency-tree/xsl/module.xsl"
-               _version="2.0">
-            <report role="info" code="duplicatedDependency">This file has already been processed</report>
-         </file>
+            abs-uri="file:/C:/Users/mricaud/_WORK/_github/mricaud/xml-utilities/src/test/org/mricaud/xml-utilities/get-xml-file-static-dependency-tree/sch/folder/mod-1.sch">
+         <report role="info" code="duplicatedDependency">This file has already been processed</report>
       </file>
    </file>
    <file dependency-type="x:context"
          name="data-in.xml"
-         uri="data-in.xml"
-         abs-uri="file:/home/ext-cmarchand/devel/github/xml-utilities/src/test/org/mricaud/xml-utilities/get-xml-file-static-dependency-tree/xspec/data-in.xml">
+         uri="res/data-in.xml"
+         abs-uri="file:/C:/Users/mricaud/_WORK/_github/mricaud/xml-utilities/src/test/org/mricaud/xml-utilities/get-xml-file-static-dependency-tree/xspec/res/data-in.xml">
       <content>
          <data/>
       </content>
    </file>
    <file dependency-type="x:expect"
          name="data-out.xml"
-         uri="data-out.xml"
-         abs-uri="file:/home/ext-cmarchand/devel/github/xml-utilities/src/test/org/mricaud/xml-utilities/get-xml-file-static-dependency-tree/xspec/data-out.xml">
+         uri="res/data-out.xml"
+         abs-uri="file:/C:/Users/mricaud/_WORK/_github/mricaud/xml-utilities/src/test/org/mricaud/xml-utilities/get-xml-file-static-dependency-tree/xspec/res/data-out.xml">
       <content>
          <data/>
       </content>

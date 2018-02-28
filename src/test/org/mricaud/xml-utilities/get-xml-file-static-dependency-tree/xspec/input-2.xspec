@@ -5,7 +5,8 @@
   query-at="xquery.xq">
   
   <x:scenario label="main">
-    <x:context href="data-in.xml"/>
-    <x:expect label="the same" href="data-out.xml"/>
+    <x:context href="data-in.xml" xml:base="res/"/>
+    <x:expect label="The same" href="res/data-out.xml"/>
   </x:scenario>
+  
 </x:description>

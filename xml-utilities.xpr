@@ -15,10 +15,12 @@
                                 <field name="scenarioIds">
                                     <list>
                                         <String>get-xml-file-static-dependency-tree.xsl - XML</String>
+                                        <String>get-xml-file-static-dependency-tree.xsl - XHTML</String>
                                     </list>
                                 </field>
                                 <field name="scenarioTypes">
                                     <list>
+                                        <String>XSL</String>
                                         <String>XSL</String>
                                     </list>
                                 </field>
@@ -30,40 +32,29 @@
                                 <field name="scenarioIds">
                                     <list>
                                         <String>get-xml-file-static-dependency-tree.xsl - XHTML</String>
-                                    </list>
-                                </field>
-                                <field name="scenarioTypes">
-                                    <list>
-                                        <String>XSL</String>
-                                    </list>
-                                </field>
-                            </scenarioAssociation>
-                            <scenarioAssociation>
-                                <field name="url">
-                                    <String>src/test/org/mricaud/xml-utilities/get-xml-file-static-dependency-tree/xspec/input.xspec</String>
-                                </field>
-                                <field name="scenarioIds">
-                                    <list>
                                         <String>get-xml-file-static-dependency-tree.xsl - XML</String>
                                     </list>
                                 </field>
                                 <field name="scenarioTypes">
                                     <list>
                                         <String>XSL</String>
+                                        <String>XSL</String>
                                     </list>
                                 </field>
                             </scenarioAssociation>
                             <scenarioAssociation>
                                 <field name="url">
-                                    <String>src/test/org/mricaud/xml-utilities/get-xml-file-static-dependency-tree/xspec/input.dependencies.xhtml</String>
+                                    <String>src/test/org/mricaud/xml-utilities/get-xml-file-static-dependency-tree/xspec/input-1.xspec</String>
                                 </field>
                                 <field name="scenarioIds">
                                     <list>
+                                        <String>get-xml-file-static-dependency-tree.xsl - XHTML</String>
                                         <String>get-xml-file-static-dependency-tree.xsl - XML</String>
                                     </list>
                                 </field>
                                 <field name="scenarioTypes">
                                     <list>
+                                        <String>XSL</String>
                                         <String>XSL</String>
                                     </list>
                                 </field>
@@ -76,6 +67,40 @@
                                     <list>
                                         <String>get-xml-file-static-dependency-tree.xsl - XHTML</String>
                                         <String>get-xml-file-static-dependency-tree.xsl - XML</String>
+                                    </list>
+                                </field>
+                                <field name="scenarioTypes">
+                                    <list>
+                                        <String>XSL</String>
+                                        <String>XSL</String>
+                                    </list>
+                                </field>
+                            </scenarioAssociation>
+                            <scenarioAssociation>
+                                <field name="url">
+                                    <String>src/test/org/mricaud/xml-utilities/get-xml-file-static-dependency-tree/xsd/input.xsd</String>
+                                </field>
+                                <field name="scenarioIds">
+                                    <list>
+                                        <String>get-xml-file-static-dependency-tree.xsl - XML</String>
+                                        <String>get-xml-file-static-dependency-tree.xsl - XHTML</String>
+                                    </list>
+                                </field>
+                                <field name="scenarioTypes">
+                                    <list>
+                                        <String>XSL</String>
+                                        <String>XSL</String>
+                                    </list>
+                                </field>
+                            </scenarioAssociation>
+                            <scenarioAssociation>
+                                <field name="url">
+                                    <String>src/test/org/mricaud/xml-utilities/get-xml-file-static-dependency-tree/sch/input.sch</String>
+                                </field>
+                                <field name="scenarioIds">
+                                    <list>
+                                        <String>get-xml-file-static-dependency-tree.xsl - XML</String>
+                                        <String>get-xml-file-static-dependency-tree.xsl - XHTML</String>
                                     </list>
                                 </field>
                                 <field name="scenarioTypes">
@@ -138,23 +163,6 @@
                             </scenarioAssociation>
                             <scenarioAssociation>
                                 <field name="url">
-                                    <String>src/test/org/mricaud/xml-utilities/get-xml-file-static-dependency-tree/sch/input.sch</String>
-                                </field>
-                                <field name="scenarioIds">
-                                    <list>
-                                        <String>get-xml-file-static-dependency-tree.xsl - XML</String>
-                                        <String>get-xml-file-static-dependency-tree.xsl - XHTML</String>
-                                    </list>
-                                </field>
-                                <field name="scenarioTypes">
-                                    <list>
-                                        <String>XSL</String>
-                                        <String>XSL</String>
-                                    </list>
-                                </field>
-                            </scenarioAssociation>
-                            <scenarioAssociation>
-                                <field name="url">
                                     <String>src/test/org/mricaud/xml-utilities/get-xml-file-static-dependency-tree/xpl/input.xpl</String>
                                 </field>
                                 <field name="scenarioIds">
@@ -172,17 +180,30 @@
                             </scenarioAssociation>
                             <scenarioAssociation>
                                 <field name="url">
-                                    <String>src/test/org/mricaud/xml-utilities/get-xml-file-static-dependency-tree/xsd/input.xsd</String>
+                                    <String>src/test/org/mricaud/xml-utilities/get-xml-file-static-dependency-tree/xspec/input.xspec</String>
                                 </field>
                                 <field name="scenarioIds">
                                     <list>
                                         <String>get-xml-file-static-dependency-tree.xsl - XML</String>
-                                        <String>get-xml-file-static-dependency-tree.xsl - XHTML</String>
                                     </list>
                                 </field>
                                 <field name="scenarioTypes">
                                     <list>
                                         <String>XSL</String>
+                                    </list>
+                                </field>
+                            </scenarioAssociation>
+                            <scenarioAssociation>
+                                <field name="url">
+                                    <String>src/test/org/mricaud/xml-utilities/get-xml-file-static-dependency-tree/xspec/input.dependencies.xhtml</String>
+                                </field>
+                                <field name="scenarioIds">
+                                    <list>
+                                        <String>get-xml-file-static-dependency-tree.xsl - XML</String>
+                                    </list>
+                                </field>
+                                <field name="scenarioTypes">
+                                    <list>
                                         <String>XSL</String>
                                     </list>
                                 </field>

@@ -16,15 +16,15 @@
    <body>
       <h3>input-3.xspec dependency tree</h3>
       <ul>
-         <li><a href="file:/home/ext-cmarchand/devel/github/xml-utilities/src/test/org/mricaud/xml-utilities/get-xml-file-static-dependency-tree/xspec/input-3.xspec"><strong>input-3.xspec</strong></a><pre class="content">&lt;x:description xmlns:x="http://www.jenitennison.com/xslt/xspec" schematron="../sch/input.sch"&gt;
+         <li><a href="file:/C:/Users/mricaud/_WORK/_github/mricaud/xml-utilities/src/test/org/mricaud/xml-utilities/get-xml-file-static-dependency-tree/xspec/input-3.xspec"><strong>input-3.xspec</strong></a><pre class="content">&lt;x:description xmlns:x="http://www.jenitennison.com/xslt/xspec" schematron="../sch/input.sch"&gt;
   
   &lt;x:scenario label="main"&gt;
-    &lt;x:context href="data-in.xml"/&gt;
-    &lt;x:expect label="same" href="data-out.xml"/&gt;
+    &lt;x:context href="res/data-in.xml"/&gt;
+    &lt;x:expect label="The same" href="res/data-out.xml"/&gt;
   &lt;/x:scenario&gt;
   
 &lt;/x:description&gt;</pre><ul>
-               <li><a href="file:/home/ext-cmarchand/devel/github/xml-utilities/src/test/org/mricaud/xml-utilities/get-xml-file-static-dependency-tree/sch/input.sch">../sch/<strong>input.sch</strong></a><span class="dependency-type"> x:description</span><br /><span class="specific-attributes"> queryBinding="xslt2" defaultPhase="test"</span><pre class="content">&lt;schema xmlns="http://purl.oclc.org/dsdl/schematron" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" queryBinding="xslt2" see="readme.txt" defaultPhase="test"&gt;
+               <li><a href="file:/C:/Users/mricaud/_WORK/_github/mricaud/xml-utilities/src/test/org/mricaud/xml-utilities/get-xml-file-static-dependency-tree/sch/input.sch">../sch/<strong>input.sch</strong></a><span class="dependency-type"> x:description</span><br /><span class="specific-attributes"> queryBinding="xslt2" defaultPhase="test"</span><pre class="content">&lt;schema xmlns="http://purl.oclc.org/dsdl/schematron" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" queryBinding="xslt2" see="readme.txt" defaultPhase="test"&gt;
 
   &lt;xsl:include href="../xsl/module.xsl"/&gt;
   
@@ -44,7 +44,12 @@
   &lt;/pattern&gt;
 
 &lt;/schema&gt;</pre><ul>
-                     <li><a href="file:/home/ext-cmarchand/devel/github/xml-utilities/src/test/org/mricaud/xml-utilities/get-xml-file-static-dependency-tree/xsl/module.xsl">../xsl/<strong>module.xsl</strong></a><span class="dependency-type"> xsl:include</span><br /><span class="specific-attributes"> version="2.0"</span><pre class="content">&lt;xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xs="http://www.w3.org/2001/XMLSchema" exclude-result-prefixes="xs" version="2.0"&gt;
+                     <li><a href=""><strong>readme.txt</strong></a><span class="dependency-type"> schema</span><div class="report error"><strong>ERROR</strong>: document is not available:  file:/C:/Users/mricaud/_WORK/_github/mricaud/xml-utilities/src/test/org/mricaud/xml-utilities/get-xml-file-static-dependency-tree/sch/readme.txt
+                        </div>
+                        <ul>
+                           <div class="report error"><strong>ERROR</strong>: document is not available:  file:/C:/Users/mricaud/_WORK/_github/mricaud/xml-utilities/src/test/org/mricaud/xml-utilities/get-xml-file-static-dependency-tree/sch/readme.txt
+                           </div>
+                           <li><a href="file:/C:/Users/mricaud/_WORK/_github/mricaud/xml-utilities/src/test/org/mricaud/xml-utilities/get-xml-file-static-dependency-tree/xsl/module.xsl">../xsl/<strong>module.xsl</strong></a><span class="dependency-type"> xsl:include</span><br /><span class="specific-attributes"> version="2.0"</span><pre class="content">&lt;xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xs="http://www.w3.org/2001/XMLSchema" exclude-result-prefixes="xs" version="2.0"&gt;
   
   &lt;xsl:template match="node() | @*"&gt;
     &lt;xsl:copy&gt;
@@ -53,7 +58,7 @@
   &lt;/xsl:template&gt;
   
 &lt;/xsl:stylesheet&gt;</pre></li>
-                     <li><a href="file:/home/ext-cmarchand/devel/github/xml-utilities/src/test/org/mricaud/xml-utilities/get-xml-file-static-dependency-tree/sch/folder/mod-1.sch">folder/<strong>mod-1.sch</strong></a><span class="dependency-type"> extends</span><pre class="content">&lt;schema xmlns="http://purl.oclc.org/dsdl/schematron" xmlns:xsl="http://www.w3.org/1999/XSL/Transform"&gt;
+                           <li><a href="file:/C:/Users/mricaud/_WORK/_github/mricaud/xml-utilities/src/test/org/mricaud/xml-utilities/get-xml-file-static-dependency-tree/sch/folder/mod-1.sch">folder/<strong>mod-1.sch</strong></a><span class="dependency-type"> extends</span><pre class="content">&lt;schema xmlns="http://purl.oclc.org/dsdl/schematron" xmlns:xsl="http://www.w3.org/1999/XSL/Transform"&gt;
   
   &lt;xsl:include href="../../xsl/module.xsl"/&gt;
   
@@ -64,15 +69,23 @@
   &lt;/pattern&gt;
   
 &lt;/schema&gt;</pre><ul>
-                           <li><a href="file:/home/ext-cmarchand/devel/github/xml-utilities/src/test/org/mricaud/xml-utilities/get-xml-file-static-dependency-tree/xsl/module.xsl">../../xsl/<strong>module.xsl</strong></a><span class="dependency-type"> xsl:include</span><br /><span class="specific-attributes"> version="2.0"</span><div class="report info"><strong>INFO</strong>: This file has already been processed
-                              </div>
+                                 <li><a href="file:/C:/Users/mricaud/_WORK/_github/mricaud/xml-utilities/src/test/org/mricaud/xml-utilities/get-xml-file-static-dependency-tree/xsl/module.xsl">../../xsl/<strong>module.xsl</strong></a><span class="dependency-type"> xsl:include</span><br /><span class="specific-attributes"> version="2.0"</span><div class="report info"><strong>INFO</strong>: This file has already been processed
+                                    </div>
+                                 </li>
+                              </ul>
                            </li>
                         </ul>
                      </li>
+                     <li><a href="file:/C:/Users/mricaud/_WORK/_github/mricaud/xml-utilities/src/test/org/mricaud/xml-utilities/get-xml-file-static-dependency-tree/xsl/module.xsl">../xsl/<strong>module.xsl</strong></a><span class="dependency-type"> xsl:include</span><br /><span class="specific-attributes"> version="2.0"</span><div class="report info"><strong>INFO</strong>: This file has already been processed
+                        </div>
+                     </li>
+                     <li><a href="file:/C:/Users/mricaud/_WORK/_github/mricaud/xml-utilities/src/test/org/mricaud/xml-utilities/get-xml-file-static-dependency-tree/sch/folder/mod-1.sch">folder/<strong>mod-1.sch</strong></a><span class="dependency-type"> extends</span><div class="report info"><strong>INFO</strong>: This file has already been processed
+                        </div>
+                     </li>
                   </ul>
                </li>
-               <li><a href="file:/home/ext-cmarchand/devel/github/xml-utilities/src/test/org/mricaud/xml-utilities/get-xml-file-static-dependency-tree/xspec/data-in.xml"><strong>data-in.xml</strong></a><span class="dependency-type"> x:context</span><pre class="content">&lt;data/&gt;</pre></li>
-               <li><a href="file:/home/ext-cmarchand/devel/github/xml-utilities/src/test/org/mricaud/xml-utilities/get-xml-file-static-dependency-tree/xspec/data-out.xml"><strong>data-out.xml</strong></a><span class="dependency-type"> x:expect</span><pre class="content">&lt;data/&gt;</pre></li>
+               <li><a href="file:/C:/Users/mricaud/_WORK/_github/mricaud/xml-utilities/src/test/org/mricaud/xml-utilities/get-xml-file-static-dependency-tree/xspec/res/data-in.xml">res/<strong>data-in.xml</strong></a><span class="dependency-type"> x:context</span><pre class="content">&lt;data/&gt;</pre></li>
+               <li><a href="file:/C:/Users/mricaud/_WORK/_github/mricaud/xml-utilities/src/test/org/mricaud/xml-utilities/get-xml-file-static-dependency-tree/xspec/res/data-out.xml">res/<strong>data-out.xml</strong></a><span class="dependency-type"> x:expect</span><pre class="content">&lt;data/&gt;</pre></li>
             </ul>
          </li>
       </ul>

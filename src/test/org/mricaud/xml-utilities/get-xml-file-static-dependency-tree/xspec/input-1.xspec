@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <x:description 
   xmlns:x="http://www.jenitennison.com/xslt/xspec"
-  stylesheet="../xsl/input.xsl">
-  <x:scenario label="main">
+  stylesheet="../xsl/input.xsl"
+  version="1.0"
+  xslt-version="2.0">
+  
+  <x:scenario label="main" xml:base="res/">
     <x:context href="data-in.xml"/>
     <x:expect label="The same" href="data-out.xml"/>
   </x:scenario>
+  
 </x:description>

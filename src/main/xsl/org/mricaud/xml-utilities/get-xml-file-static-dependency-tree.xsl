@@ -119,7 +119,7 @@
       <xsl:if test="not(empty($uri))">
         <xsl:attribute name="uri" select="$uri"/>
       </xsl:if>
-      <xsl:if test="not(empty($abs-uri))"> <!--$addAbsoluteUri-->
+      <xsl:if test="not(empty($abs-uri))">
         <xsl:attribute name="abs-uri" select="$abs-uri"/>
       </xsl:if>
       <xsl:for-each select="$specific-attributes-set">
@@ -145,8 +145,6 @@
               <xsl:with-param name="dependency-type" select="$dependency-type" as="xs:string"/>
               <xsl:with-param name="uri" select="$res.attribute" as="xs:string"/>
             </xsl:apply-templates>
-            <!--In some special case an inclusion can contains another inclusion (e.g. rng:include with rng:externalRef inside)-->
-            <xsl:apply-templates mode="#current"/>
           </xsl:when>
           <xsl:when test="unparsed-text-available($abs-uri)">
             <xsl:variable name="error.msg" as="xs:string">document is not available as XML: sub-dependencies will not be analyzed</xsl:variable>
@@ -156,8 +154,6 @@
               </xsl:if>
               <report role="warning" code="xut:docIsNotAvailableAsXML"><xsl:value-of select="$error.msg"/></report>
               <xsl:message>[WARNING] <xsl:value-of select="$error.msg"/></xsl:message>
-              <!--In some special case an inclusion can contains another inclusion (e.g. rng:include with rng:externalRef inside)-->
-              <xsl:apply-templates mode="#current"/>
             </file>
           </xsl:when>
           <xsl:otherwise>
@@ -182,6 +178,8 @@
         <xsl:message>[WARNING] <xsl:value-of select="$error.msg"/></xsl:message>
       </xsl:otherwise>
     </xsl:choose>
+    <!--In some case an inclusion element may contains another inclusion element as descendant (e.g. rng:externalRef within rng:include, or xspec x:context[@href] within x:description[@stylesheet])-->
+    <xsl:apply-templates mode="#current"/>
   </xsl:template>
   
   <!--===========================================-->
@@ -261,18 +259,17 @@
   <!-- SCH depencencies -->
   <!--===========================================-->
   
+  <xsl:template match="/iso-sch:schema[@see] | /sch:schema[@see]" mode="xut:get-xml-dependency-tree">
+    <xsl:call-template name="xut:get-xml-dependency">
+      <xsl:with-param name="res.attribute" select="@see" as="xs:string"/>
+    </xsl:call-template>
+  </xsl:template>
+
   <xsl:template match="sch:extends| iso-sch:extends" mode="xut:get-xml-dependency-tree">
     <xsl:call-template name="xut:get-xml-dependency">
       <xsl:with-param name="res.attribute" select="@href" as="xs:string"/>
     </xsl:call-template>
   </xsl:template>
-  
-  <!--FIXME-->
-  <!--<xsl:template match="/iso-sch:schema | /sch:schema" mode="xut:get-xml-dependency-tree">
-    <xsl:call-template name="xut:get-xml-dependency">
-      <xsl:with-param name="res.attribute" select="@see" as="xs:string"/>
-    </xsl:call-template>
-  </xsl:template>-->
   
   <xsl:template match="/iso-sch:schema | /sch:schema" mode="xut:get-xml-dependency-tree.specific-attributes-set" as="attribute()*">
     <xsl:copy-of select="@* except (@see | @icon)"/>
@@ -292,28 +289,34 @@
   <!-- XSpec depencencies -->
   <!--===========================================-->
   
+  <xsl:template match="/xspec:description[@stylesheet]" mode="xut:get-xml-dependency-tree">
+    <xsl:call-template name="xut:get-xml-dependency">
+      <xsl:with-param name="res.attribute" select="@stylesheet" as="xs:string"/>
+    </xsl:call-template>
+  </xsl:template>
+  
+  <xsl:template match="/xspec:description[@query-at]" mode="xut:get-xml-dependency-tree">
+    <xsl:call-template name="xut:get-xml-dependency">
+      <xsl:with-param name="res.attribute" select="@query-at" as="xs:string"/>
+    </xsl:call-template>
+  </xsl:template>
+  
+  <xsl:template match="/xspec:description[@schematron]" mode="xut:get-xml-dependency-tree">
+    <xsl:call-template name="xut:get-xml-dependency">
+      <xsl:with-param name="res.attribute" select="@schematron" as="xs:string"/>
+    </xsl:call-template>
+  </xsl:template>
+
   <xsl:template match="xspec:context[@href] | xspec:expect[@href]" mode="xut:get-xml-dependency-tree">
     <xsl:call-template name="xut:get-xml-dependency">
       <xsl:with-param name="res.attribute" select="@href" as="xs:string"/>
     </xsl:call-template>
   </xsl:template>
   
-  <xsl:template match="xspec:description[@stylesheet]" mode="xut:get-xml-dependency-tree">
-    <xsl:call-template name="xut:get-xml-dependency">
-      <xsl:with-param name="res.attribute" select="@stylesheet" as="xs:string"/>
-    </xsl:call-template>
+  <xsl:template match="/xspec:description" mode="xut:get-xml-dependency-tree.specific-attributes-set" as="attribute()*">
+    <xsl:copy-of select="@version | @xslt-version"/>
   </xsl:template>
-  <xsl:template match="xspec:description[@query-at]" mode="xut:get-xml-dependency-tree">
-    <xsl:call-template name="xut:get-xml-dependency">
-      <xsl:with-param name="res.attribute" select="@query-at" as="xs:string"/>
-    </xsl:call-template>
-  </xsl:template>
-  <xsl:template match="xspec:description[@schematron]" mode="xut:get-xml-dependency-tree">
-    <xsl:call-template name="xut:get-xml-dependency">
-      <xsl:with-param name="res.attribute" select="@schematron" as="xs:string"/>
-    </xsl:call-template>
-  </xsl:template>
-
+  
   <!--===========================================-->
   <!-- DEFAULT -->
   <!--===========================================-->
