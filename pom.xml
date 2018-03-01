@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project 
+  xmlns="http://maven.apache.org/POM/4.0.0" 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  
+  <groupId>org.mricaud.xml</groupId>
+  <artifactId>xut</artifactId>
+  <version>0.1.0</version>
+  <packaging>jar</packaging>
+  
+  <name>xml-utilities</name>
+  <description>A set of XML utilities, like XSLT, schematron, etc.</description>
+  <inceptionYear>2018</inceptionYear>
+  <url>https://github.com/mricaud/xml-utilities</url>
+  
+  <licenses>
+    <license>
+      <name>Apache License 2.0</name>
+      <url>https://opensource.org/licenses/Apache-2.0</url>
+    </license>
+  </licenses>
+  
+  <developers>
+    <developer>
+      <name>Matthieu Ricaud-Dussarget</name>
+      <email>ricaudm@gmail.com</email>
+      <roles>
+        <role>developer</role>
+        <role>project owner</role>
+      </roles>
+      <timezone>UTC+1</timezone>
+      <url>https://github.com/mricaud/</url>
+    </developer>
+  </developers>
+  
+  <scm>
+    <connection>scm:git:https://github.com/mricaud/xml-utilities.git</connection>
+    <developerConnection>scm:git:https://github.com/mricaud/xml-utilities.git</developerConnection>
+    <url>scm:git:https://github.com/mricaud/xml-utilities.git</url>
+    <tag>HEAD</tag>
+  </scm>
+  
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+  
+  <build>
+    <resources>
+      <resource>
+        <directory>src/main/xsl</directory>
+        <filtering>false</filtering>
+      </resource>
+    </resources>
+    
+    <plugins>
+      
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.3</version>
+        <configuration>
+          <source>1.7</source>
+          <target>1.7</target>
+        </configuration>
+      </plugin>
+      
+      <!--<plugin>
+        <groupId>io.xspec.maven</groupId>
+        <artifactId>xspec-maven-plugin</artifactId>
+        <version>1.5.0</version>
+        <dependencies>
+          <dependency>
+            <groupId>net.sf.saxon</groupId>
+            <artifactId>Saxon-HE</artifactId>
+            <version>9.7.0-1</version>
+          </dependency>
+        </dependencies>
+        <configuration>
+          <generateSurefireReport>true</generateSurefireReport>
+        </configuration>
+        <executions>
+          <execution>
+            <phase>test</phase>
+            <goals>
+              <goal>run-xspec</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>-->
+      
+      <plugin>
+        <groupId>top.marchand.xml.maven</groupId>
+        <artifactId>catalogBuilder-maven-plugin</artifactId>
+        <version>1.0.5</version>
+        <executions>
+          <execution>
+            <id>preparation</id>
+            <goals>
+              <goal>catalog</goal>
+            </goals>
+          </execution>
+          <execution>
+            <id>packaging</id>
+            <phase>package</phase>
+            <goals>
+              <goal>catalog</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+      
+      <!--<plugin>
+        <groupId>top.marchand.xml</groupId>
+        <artifactId>xslDoc-maven-plugin</artifactId>
+        <version>0.2-SNAPSHOT</version>
+        <executions>
+          <execution>
+            <goals>
+              <goal>xsl-doc</goal>
+            </goals>
+            <configuration>
+              <keepConfigFile>false</keepConfigFile>
+              <xslDirectories>
+                <xslDirectory>src/main/xsl</xslDirectory>
+                <xslDirectory>src/main/resources</xslDirectory>
+              </xslDirectories>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>-->      
+      
+      <plugin>
+        <artifactId>maven-assembly-plugin</artifactId>
+        <version>2.6</version>
+        <configuration>
+          <descriptorRefs>
+            <descriptorRef>jar-with-dependencies</descriptorRef>
+          </descriptorRefs>
+        </configuration>
+        <executions>
+          <execution>
+            <phase>package</phase>
+            <goals>
+              <goal>single</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+      
+    </plugins>
+  </build>
+  
+  <distributionManagement>
+    <snapshotRepository>
+      <id>ossrh</id>
+      <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+    </snapshotRepository>
+    <repository>
+      <id>ossrh</id>
+      <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+    </repository>
+  </distributionManagement>
+  
+  <!--<pluginRepositories>
+    <pluginRepository>
+      <id>nexus-public</id>
+      <url>http://srvic/nexus/content/groups/public</url>
+      <layout>default</layout>
+      <snapshots>
+        <enabled>true</enabled>
+      </snapshots>
+    </pluginRepository>
+  </pluginRepositories>-->
+  
+  <profiles>
+    <profile>
+      <id>release</id>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-gpg-plugin</artifactId>
+            <version>1.6</version>
+            <executions>
+              <execution>
+                <id>sign-artifacts</id>
+                <phase>verify</phase>
+                <goals>
+                  <goal>sign</goal>
+                </goals>
+              </execution>
+            </executions>
+          </plugin>
+          <plugin>
+            <groupId>org.sonatype.plugins</groupId>
+            <artifactId>nexus-staging-maven-plugin</artifactId>
+            <version>1.6.7</version>
+            <extensions>true</extensions>
+            <configuration>
+              <serverId>ossrh</serverId>
+              <nexusUrl>https://oss.sonatype.org/</nexusUrl>
+              <autoReleaseAfterClose>true</autoReleaseAfterClose>
+            </configuration>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+  </profiles>
+  
+</project>
