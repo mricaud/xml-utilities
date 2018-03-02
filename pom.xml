@@ -90,10 +90,10 @@
         </executions>
       </plugin>-->
       
-      <plugin>
+      <!--<plugin>
         <groupId>top.marchand.xml.maven</groupId>
         <artifactId>catalogBuilder-maven-plugin</artifactId>
-        <version>1.0.5</version>
+        <version>1.0.4</version>
         <executions>
           <execution>
             <id>preparation</id>
@@ -107,9 +107,14 @@
             <goals>
               <goal>catalog</goal>
             </goals>
+            <!-\-Alternativ catalog file generation-\->
+            <!-\-<configuration>
+              <rewriteToProtocol>cp</rewriteToProtocol>
+              <catalogFileName>target/generated-catalog/catalog.xml</catalogFileName>
+            </configuration>-\->
           </execution>
         </executions>
-      </plugin>
+      </plugin>-->
       
       <!--<plugin>
         <groupId>top.marchand.xml</groupId>
@@ -131,7 +136,7 @@
         </executions>
       </plugin>-->      
       
-      <plugin>
+      <!--<plugin>
         <artifactId>maven-assembly-plugin</artifactId>
         <version>2.6</version>
         <configuration>
@@ -147,7 +152,7 @@
             </goals>
           </execution>
         </executions>
-      </plugin>
+      </plugin>-->
       
     </plugins>
   </build>
