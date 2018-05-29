@@ -1,10 +1,20 @@
-<?xml version="1.0" encoding="UTF-8"?><html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml">
    <head>
-      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta>
       <title>input.sch dependency tree</title><style type="text/css">
           
             body{font-family:sans-serif;}
-            li{list-style-type:square; margin-top:1em;}
+            li{list-style-type:none; margin-top:1em;}
+            li.collapse &gt; ul{display:none;}
+            .bullet{
+              margin-right: 0.5em;
+              border: 1px solid;
+              padding: 0 .3em;
+              font-size: .5em;
+              vertical-align: middle;
+            }
+            .bullet:before{content:"–";}
+            .bullet.collapse:before{content:"+"}
             .dependency-type{color:grey;}
             .specific-attributes{color:grey; font-size:0.85em;}
             .content{padding:0.5em;border:1px solid grey;color:grey;overflow: auto;}
@@ -12,11 +22,24 @@
             .report.warning{color:orange;}
             .report.info{color:lightblue;}
           
-        </style></head>
+        </style><script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script><script type="text/javascript">
+          
+           try {
+            $(function(){
+              $(document).ready(function() {
+                $( ".bullet" ).click(function() {
+                  $(this).toggleClass( "collapse" );
+                  $(this).parent().toggleClass( "collapse" );
+                });
+              });
+            });
+          } catch(err){}
+          
+        </script></head>
    <body>
       <h3>input.sch dependency tree</h3>
       <ul>
-         <li><a href="file:/C:/Users/mricaud/_WORK/_github/mricaud/xml-utilities/src/test/org/mricaud/xml-utilities/get-xfile-dependancies/sch/input.sch"><strong>input.sch</strong></a><br /><span class="specific-attributes"> queryBinding="xslt2" defaultPhase="test"</span><pre class="content">&lt;schema xmlns="http://purl.oclc.org/dsdl/schematron" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" queryBinding="xslt2" see="readme.txt" defaultPhase="test"&gt;
+         <li><span class="bullet"></span><a href="file:/D:/dev/github/mricaud/xml-utilities/src/test/org/mricaud/xml-utilities/get-xml-file-static-dependency-tree/sch/input.sch"><strong>input.sch</strong></a><br></br><span class="specific-attributes"> queryBinding="xslt2" defaultPhase="test"</span><pre class="content">&lt;schema xmlns="http://purl.oclc.org/dsdl/schematron" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" queryBinding="xslt2" see="readme.txt" defaultPhase="test"&gt;
 
   &lt;xsl:include href="../xsl/module.xsl"/&gt;
   
@@ -36,7 +59,10 @@
   &lt;/pattern&gt;
 
 &lt;/schema&gt;</pre><ul>
-               <li><a href="file:/C:/Users/mricaud/_WORK/_github/mricaud/xml-utilities/src/test/org/mricaud/xml-utilities/get-xfile-dependancies/xsl/module.xsl">../xsl/<strong>module.xsl</strong></a><span class="dependency-type"> xsl:include</span><br /><span class="specific-attributes"> version="2.0"</span><pre class="content">&lt;xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xs="http://www.w3.org/2001/XMLSchema" exclude-result-prefixes="xs" version="2.0"&gt;
+               <li><span class="bullet"></span><a href=""><strong>readme.txt</strong></a><span class="dependency-type"> schema</span><div class="report error"><strong>ERROR</strong>: document is not available:  file:/D:/dev/github/mricaud/xml-utilities/src/test/org/mricaud/xml-utilities/get-xml-file-static-dependency-tree/sch/readme.txt
+                  </div>
+               </li>
+               <li><span class="bullet"></span><a href="file:/D:/dev/github/mricaud/xml-utilities/src/test/org/mricaud/xml-utilities/get-xml-file-static-dependency-tree/xsl/module.xsl">../xsl/<strong>module.xsl</strong></a><span class="dependency-type"> xsl:include</span><br></br><span class="specific-attributes"> version="2.0"</span><pre class="content">&lt;xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xs="http://www.w3.org/2001/XMLSchema" exclude-result-prefixes="xs" version="2.0"&gt;
   
   &lt;xsl:template match="node() | @*"&gt;
     &lt;xsl:copy&gt;
@@ -45,7 +71,7 @@
   &lt;/xsl:template&gt;
   
 &lt;/xsl:stylesheet&gt;</pre></li>
-               <li><a href="file:/C:/Users/mricaud/_WORK/_github/mricaud/xml-utilities/src/test/org/mricaud/xml-utilities/get-xfile-dependancies/sch/folder/mod-1.sch">folder/<strong>mod-1.sch</strong></a><span class="dependency-type"> extends</span><pre class="content">&lt;schema xmlns="http://purl.oclc.org/dsdl/schematron" xmlns:xsl="http://www.w3.org/1999/XSL/Transform"&gt;
+               <li><span class="bullet"></span><a href="file:/D:/dev/github/mricaud/xml-utilities/src/test/org/mricaud/xml-utilities/get-xml-file-static-dependency-tree/sch/folder/mod-1.sch">folder/<strong>mod-1.sch</strong></a><span class="dependency-type"> extends</span><pre class="content">&lt;schema xmlns="http://purl.oclc.org/dsdl/schematron" xmlns:xsl="http://www.w3.org/1999/XSL/Transform"&gt;
   
   &lt;xsl:include href="../../xsl/module.xsl"/&gt;
   
@@ -56,7 +82,7 @@
   &lt;/pattern&gt;
   
 &lt;/schema&gt;</pre><ul>
-                     <li><a href="file:/C:/Users/mricaud/_WORK/_github/mricaud/xml-utilities/src/test/org/mricaud/xml-utilities/get-xfile-dependancies/xsl/module.xsl">../../xsl/<strong>module.xsl</strong></a><span class="dependency-type"> xsl:include</span><br /><span class="specific-attributes"> version="2.0"</span><div class="report info"><strong>INFO</strong>: This file has already been processed
+                     <li><span class="bullet"></span><a href="file:/D:/dev/github/mricaud/xml-utilities/src/test/org/mricaud/xml-utilities/get-xml-file-static-dependency-tree/xsl/module.xsl">../../xsl/<strong>module.xsl</strong></a><span class="dependency-type"> xsl:include</span><br></br><span class="specific-attributes"> version="2.0"</span><div class="report info"><strong>INFO</strong>: This file has already been processed
                         </div>
                      </li>
                   </ul>

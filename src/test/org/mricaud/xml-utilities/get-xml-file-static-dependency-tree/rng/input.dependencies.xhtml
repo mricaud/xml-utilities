@@ -1,10 +1,20 @@
-<?xml version="1.0" encoding="UTF-8"?><html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml">
    <head>
-      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta>
       <title>input.rng dependency tree</title><style type="text/css">
           
             body{font-family:sans-serif;}
-            li{list-style-type:square; margin-top:1em;}
+            li{list-style-type:none; margin-top:1em;}
+            li.collapse &gt; ul{display:none;}
+            .bullet{
+              margin-right: 0.5em;
+              border: 1px solid;
+              padding: 0 .3em;
+              font-size: .5em;
+              vertical-align: middle;
+            }
+            .bullet:before{content:"–";}
+            .bullet.collapse:before{content:"+"}
             .dependency-type{color:grey;}
             .specific-attributes{color:grey; font-size:0.85em;}
             .content{padding:0.5em;border:1px solid grey;color:grey;overflow: auto;}
@@ -12,11 +22,24 @@
             .report.warning{color:orange;}
             .report.info{color:lightblue;}
           
-        </style></head>
+        </style><script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script><script type="text/javascript">
+          
+           try {
+            $(function(){
+              $(document).ready(function() {
+                $( ".bullet" ).click(function() {
+                  $(this).toggleClass( "collapse" );
+                  $(this).parent().toggleClass( "collapse" );
+                });
+              });
+            });
+          } catch(err){}
+          
+        </script></head>
    <body>
       <h3>input.rng dependency tree</h3>
       <ul>
-         <li><a href="file:/C:/Users/mricaud/_WORK/_github/mricaud/xml-utilities/src/test/org/mricaud/xml-utilities/get-xml-file-static-dependency-tree/rng/input.rng"><strong>input.rng</strong></a><pre class="content">&lt;grammar xmlns="http://relaxng.org/ns/structure/1.0" xmlns:sch="http://www.ascc.net/xml/schematron"&gt;
+         <li><span class="bullet"></span><a href="file:/D:/dev/github/mricaud/xml-utilities/src/test/org/mricaud/xml-utilities/get-xml-file-static-dependency-tree/rng/input.rng"><strong>input.rng</strong></a><pre class="content">&lt;grammar xmlns="http://relaxng.org/ns/structure/1.0" xmlns:sch="http://www.ascc.net/xml/schematron"&gt;
   
   &lt;include href="folder/mod-1.rng"/&gt;
   
@@ -32,7 +55,7 @@
   &lt;/define&gt;
   
 &lt;/grammar&gt;</pre><ul>
-               <li><a href="file:/C:/Users/mricaud/_WORK/_github/mricaud/xml-utilities/src/test/org/mricaud/xml-utilities/get-xml-file-static-dependency-tree/rng/folder/mod-1.rng">folder/<strong>mod-1.rng</strong></a><span class="dependency-type"> include</span><pre class="content">&lt;grammar xmlns="http://relaxng.org/ns/structure/1.0"&gt;
+               <li><span class="bullet"></span><a href="file:/D:/dev/github/mricaud/xml-utilities/src/test/org/mricaud/xml-utilities/get-xml-file-static-dependency-tree/rng/folder/mod-1.rng">folder/<strong>mod-1.rng</strong></a><span class="dependency-type"> include</span><pre class="content">&lt;grammar xmlns="http://relaxng.org/ns/structure/1.0"&gt;
   
   &lt;include href="../module.rng"&gt;
     &lt;define name="foo"&gt;
@@ -52,7 +75,7 @@
   &lt;/start&gt;
   
 &lt;/grammar&gt;</pre><ul>
-                     <li><a href="file:/C:/Users/mricaud/_WORK/_github/mricaud/xml-utilities/src/test/org/mricaud/xml-utilities/get-xml-file-static-dependency-tree/rng/module.rng">../<strong>module.rng</strong></a><span class="dependency-type"> include</span><pre class="content">&lt;grammar xmlns="http://relaxng.org/ns/structure/1.0"&gt;
+                     <li><span class="bullet"></span><a href="file:/D:/dev/github/mricaud/xml-utilities/src/test/org/mricaud/xml-utilities/get-xml-file-static-dependency-tree/rng/module.rng">../<strong>module.rng</strong></a><span class="dependency-type"> include</span><pre class="content">&lt;grammar xmlns="http://relaxng.org/ns/structure/1.0"&gt;
   
   &lt;define name="foo"&gt;
     &lt;element name="foo"&gt;
@@ -61,7 +84,7 @@
   &lt;/define&gt;
   
 &lt;/grammar&gt;</pre></li>
-                     <li><a href="file:/C:/Users/mricaud/_WORK/_github/mricaud/xml-utilities/src/test/org/mricaud/xml-utilities/get-xml-file-static-dependency-tree/rng/folder/mod-2.rng"><strong>mod-2.rng</strong></a><span class="dependency-type"> externalRef</span><pre class="content">&lt;group xmlns="http://relaxng.org/ns/structure/1.0"&gt;
+                     <li><span class="bullet"></span><a href="file:/D:/dev/github/mricaud/xml-utilities/src/test/org/mricaud/xml-utilities/get-xml-file-static-dependency-tree/rng/folder/mod-2.rng"><strong>mod-2.rng</strong></a><span class="dependency-type"> externalRef</span><pre class="content">&lt;group xmlns="http://relaxng.org/ns/structure/1.0"&gt;
   
   &lt;optional&gt;
     &lt;attribute name="bar"/&gt;
@@ -70,12 +93,12 @@
 &lt;/group&gt;</pre></li>
                   </ul>
                </li>
-               <li><a href="file:/C:/Users/mricaud/_WORK/_github/mricaud/xml-utilities/src/test/org/mricaud/xml-utilities/get-xml-file-static-dependency-tree/sch/folder/mod-2.sch">../sch/folder/<strong>mod-2.sch</strong></a><span class="dependency-type"> sch:extends</span><pre class="content">&lt;pattern xmlns="http://purl.oclc.org/dsdl/schematron"&gt;
+               <li><span class="bullet"></span><a href="file:/D:/dev/github/mricaud/xml-utilities/src/test/org/mricaud/xml-utilities/get-xml-file-static-dependency-tree/sch/folder/mod-2.sch">../sch/folder/<strong>mod-2.sch</strong></a><span class="dependency-type"> sch:extends</span><pre class="content">&lt;pattern xmlns="http://purl.oclc.org/dsdl/schematron"&gt;
   &lt;rule context="/*"&gt;
     &lt;assert test="true()"&gt;Root element&lt;/assert&gt;
   &lt;/rule&gt;
 &lt;/pattern&gt;</pre></li>
-               <li><a href="file:/C:/Users/mricaud/_WORK/_github/mricaud/xml-utilities/src/test/org/mricaud/xml-utilities/get-xml-file-static-dependency-tree/rng/folder/mod-2.rng">folder/<strong>mod-2.rng</strong></a><span class="dependency-type"> externalRef</span><div class="report info"><strong>INFO</strong>: This file has already been processed
+               <li><span class="bullet"></span><a href="file:/D:/dev/github/mricaud/xml-utilities/src/test/org/mricaud/xml-utilities/get-xml-file-static-dependency-tree/rng/folder/mod-2.rng">folder/<strong>mod-2.rng</strong></a><span class="dependency-type"> externalRef</span><div class="report info"><strong>INFO</strong>: This file has already been processed
                   </div>
                </li>
             </ul>

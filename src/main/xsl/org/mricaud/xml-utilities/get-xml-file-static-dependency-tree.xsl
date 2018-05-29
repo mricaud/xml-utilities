@@ -26,7 +26,7 @@
   <xsl:import href="functx.xsl"/>
   
   <xsl:output name="xut:xml" method="xml" indent="yes"/>
-  <xsl:output name="xut:xhtml" method="xhtml" indent="yes"/>
+  <xsl:output name="xut:html" method="html" indent="yes"/>
   
   <xd:p>param to gather each "x-file" content within the final result</xd:p>
   <xsl:param name="xut:get-xml-file-static-dependency-tree.getContent" select="false()" as="xs:boolean"/>
@@ -90,12 +90,12 @@
     <!--Final result as XML or HTML-->
     <xsl:choose>
       <xsl:when test="not($xut:get-xml-file-static-dependency-tree.outputHtml)">
-        <xsl:result-document format="xut:xml">
+        <!--<xsl:result-document format="xut:xml">-->
           <xsl:sequence select="$step"/>
-        </xsl:result-document>
+        <!--</xsl:result-document>-->
       </xsl:when>
       <xsl:otherwise>
-        <xsl:result-document format="xut:xhtml">
+        <xsl:result-document format="xut:html">
           <xsl:apply-templates select="$step" mode="xut:get-xml-dependency-tree.to-html"/>
         </xsl:result-document>
       </xsl:otherwise>
@@ -411,7 +411,17 @@
         <style type="text/css">
           <![CDATA[
             body{font-family:sans-serif;}
-            li{list-style-type:square; margin-top:1em;}
+            li{list-style-type:none; margin-top:1em;}
+            li.collapse > ul{display:none;}
+            .bullet{
+              margin-right: 0.5em;
+              border: 1px solid;
+              padding: 0 .3em;
+              font-size: .5em;
+              vertical-align: middle;
+            }
+            .bullet:before{content:"–";}
+            .bullet.collapse:before{content:"+"}
             .dependency-type{color:grey;}
             .specific-attributes{color:grey; font-size:0.85em;}
             .content{padding:0.5em;border:1px solid grey;color:grey;overflow: auto;}
@@ -420,6 +430,21 @@
             .report.info{color:lightblue;}
           ]]>
         </style>
+        <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"/>
+        <script type="text/javascript">
+          <![CDATA[
+           try {
+            $(function(){
+              $(document).ready(function() {
+                $( ".bullet" ).click(function() {
+                  $(this).toggleClass( "collapse" );
+                  $(this).parent().toggleClass( "collapse" );
+                });
+              });
+            });
+          } catch(err){}
+          ]]>
+        </script>
       </head>
       <body>
         <h3><xsl:value-of select="file[1]/@name"/> dependency tree</h3>
@@ -432,6 +457,7 @@
   
   <xsl:template match="file" mode="xut:get-xml-dependency-tree.to-html">
     <li xmlns="http://www.w3.org/1999/xhtml">
+      <span class="bullet"/>
       <a href="{@abs-uri}">
         <xsl:if test="xut:getFolderPath(@uri) != ''">
           <xsl:sequence select="xut:getFolderPath(@uri) || '/'"/>

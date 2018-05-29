@@ -1,10 +1,20 @@
-<?xml version="1.0" encoding="UTF-8"?><html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml">
    <head>
-      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta>
       <title>input.nvdl dependency tree</title><style type="text/css">
           
             body{font-family:sans-serif;}
-            li{list-style-type:square; margin-top:1em;}
+            li{list-style-type:none; margin-top:1em;}
+            li.collapse &gt; ul{display:none;}
+            .bullet{
+              margin-right: 0.5em;
+              border: 1px solid;
+              padding: 0 .3em;
+              font-size: .5em;
+              vertical-align: middle;
+            }
+            .bullet:before{content:"–";}
+            .bullet.collapse:before{content:"+"}
             .dependency-type{color:grey;}
             .specific-attributes{color:grey; font-size:0.85em;}
             .content{padding:0.5em;border:1px solid grey;color:grey;overflow: auto;}
@@ -12,11 +22,24 @@
             .report.warning{color:orange;}
             .report.info{color:lightblue;}
           
-        </style></head>
+        </style><script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script><script type="text/javascript">
+          
+           try {
+            $(function(){
+              $(document).ready(function() {
+                $( ".bullet" ).click(function() {
+                  $(this).toggleClass( "collapse" );
+                  $(this).parent().toggleClass( "collapse" );
+                });
+              });
+            });
+          } catch(err){}
+          
+        </script></head>
    <body>
       <h3>input.nvdl dependency tree</h3>
       <ul>
-         <li><a href="file:/C:/Users/mricaud/_WORK/_github/mricaud/xml-utilities/src/test/org/mricaud/xml-utilities/get-xml-file-static-dependency-tree/nvdl/input.nvdl"><strong>input.nvdl</strong></a><pre class="content">&lt;rules xmlns="http://purl.oclc.org/dsdl/nvdl/ns/structure/1.0" xmlns:xi="http://www.w3.org/2003/XInclude" startMode="start"&gt;
+         <li><span class="bullet"></span><a href="file:/D:/dev/github/mricaud/xml-utilities/src/test/org/mricaud/xml-utilities/get-xml-file-static-dependency-tree/nvdl/input.nvdl"><strong>input.nvdl</strong></a><pre class="content">&lt;rules xmlns="http://purl.oclc.org/dsdl/nvdl/ns/structure/1.0" xmlns:xi="http://www.w3.org/2003/XInclude" startMode="start"&gt;
   
   &lt;mode name="start"&gt;
     &lt;namespace ns="http://ns1"&gt;
@@ -32,7 +55,7 @@
   &lt;xi:include href="attach.nvdl"/&gt;
   
 &lt;/rules&gt;</pre><ul>
-               <li><a href="file:/C:/Users/mricaud/_WORK/_github/mricaud/xml-utilities/src/test/org/mricaud/xml-utilities/get-xml-file-static-dependency-tree/rng/module.rng">../rng/<strong>module.rng</strong></a><span class="dependency-type"> validate</span><pre class="content">&lt;grammar xmlns="http://relaxng.org/ns/structure/1.0"&gt;
+               <li><span class="bullet"></span><a href="file:/D:/dev/github/mricaud/xml-utilities/src/test/org/mricaud/xml-utilities/get-xml-file-static-dependency-tree/rng/module.rng">../rng/<strong>module.rng</strong></a><span class="dependency-type"> validate</span><pre class="content">&lt;grammar xmlns="http://relaxng.org/ns/structure/1.0"&gt;
   
   &lt;define name="foo"&gt;
     &lt;element name="foo"&gt;
@@ -41,21 +64,21 @@
   &lt;/define&gt;
   
 &lt;/grammar&gt;</pre></li>
-               <li><a href="file:/C:/Users/mricaud/_WORK/_github/mricaud/xml-utilities/src/test/org/mricaud/xml-utilities/get-xml-file-static-dependency-tree/xsd/module.xsd">../xsd/<strong>module.xsd</strong></a><span class="dependency-type"> validate</span><pre class="content">&lt;xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"&gt;
+               <li><span class="bullet"></span><a href="file:/D:/dev/github/mricaud/xml-utilities/src/test/org/mricaud/xml-utilities/get-xml-file-static-dependency-tree/xsd/module.xsd">../xsd/<strong>module.xsd</strong></a><span class="dependency-type"> validate</span><pre class="content">&lt;xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"&gt;
   
 &lt;/xs:schema&gt;</pre></li>
-               <li><a href="file:/C:/Users/mricaud/_WORK/_github/mricaud/xml-utilities/src/test/org/mricaud/xml-utilities/get-xml-file-static-dependency-tree/nvdl/res/test.rnc"><strong>test.rnc</strong></a><span class="dependency-type"> validate</span><div class="report warning"><strong>WARNING</strong>: document is not available as XML: sub-dependencies will not be analyzed
+               <li><span class="bullet"></span><a href="file:/D:/dev/github/mricaud/xml-utilities/src/test/org/mricaud/xml-utilities/get-xml-file-static-dependency-tree/nvdl/res/test.rnc"><strong>test.rnc</strong></a><span class="dependency-type"> validate</span><div class="report warning"><strong>WARNING</strong>: document is not available as XML: sub-dependencies will not be analyzed
                   </div><pre class="content">datatypes xsd = "http://www.w3.org/2001/XMLSchema-datatypes"
 
 element test { xsd:double }
 </pre></li>
-               <li><a href=""><strong>test.rnc</strong></a><span class="dependency-type"> validate</span><div class="report error"><strong>ERROR</strong>: document is not available:  file:/C:/Users/mricaud/_WORK/_github/mricaud/xml-utilities/src/test/org/mricaud/xml-utilities/get-xml-file-static-dependency-tree/nvdl/test.rnc
+               <li><span class="bullet"></span><a href=""><strong>test.rnc</strong></a><span class="dependency-type"> validate</span><div class="report error"><strong>ERROR</strong>: document is not available:  file:/D:/dev/github/mricaud/xml-utilities/src/test/org/mricaud/xml-utilities/get-xml-file-static-dependency-tree/nvdl/test.rnc
                   </div>
                </li>
-               <li><a href="file:/C:/Users/mricaud/_WORK/_github/mricaud/xml-utilities/src/test/org/mricaud/xml-utilities/get-xml-file-static-dependency-tree/nvdl/res/test.dtd"><strong>test.dtd</strong></a><span class="dependency-type"> validate</span><div class="report warning"><strong>WARNING</strong>: document is not available as XML: sub-dependencies will not be analyzed
+               <li><span class="bullet"></span><a href="file:/D:/dev/github/mricaud/xml-utilities/src/test/org/mricaud/xml-utilities/get-xml-file-static-dependency-tree/nvdl/res/test.dtd"><strong>test.dtd</strong></a><span class="dependency-type"> validate</span><div class="report warning"><strong>WARNING</strong>: document is not available as XML: sub-dependencies will not be analyzed
                   </div><pre class="content">&amp;lt;?xml version="1.0" encoding="iso-8859-1"?&amp;gt;
 &amp;lt;!ELEMENT root EMPTY&amp;gt;</pre></li>
-               <li><a href="file:/C:/Users/mricaud/_WORK/_github/mricaud/xml-utilities/src/test/org/mricaud/xml-utilities/get-xml-file-static-dependency-tree/sch/folder/mod-1.sch">../sch/folder/<strong>mod-1.sch</strong></a><span class="dependency-type"> validate</span><pre class="content">&lt;schema xmlns="http://purl.oclc.org/dsdl/schematron" xmlns:xsl="http://www.w3.org/1999/XSL/Transform"&gt;
+               <li><span class="bullet"></span><a href="file:/D:/dev/github/mricaud/xml-utilities/src/test/org/mricaud/xml-utilities/get-xml-file-static-dependency-tree/sch/folder/mod-1.sch">../sch/folder/<strong>mod-1.sch</strong></a><span class="dependency-type"> validate</span><pre class="content">&lt;schema xmlns="http://purl.oclc.org/dsdl/schematron" xmlns:xsl="http://www.w3.org/1999/XSL/Transform"&gt;
   
   &lt;xsl:include href="../../xsl/module.xsl"/&gt;
   
@@ -66,7 +89,7 @@ element test { xsd:double }
   &lt;/pattern&gt;
   
 &lt;/schema&gt;</pre><ul>
-                     <li><a href="file:/C:/Users/mricaud/_WORK/_github/mricaud/xml-utilities/src/test/org/mricaud/xml-utilities/get-xml-file-static-dependency-tree/xsl/module.xsl">../../xsl/<strong>module.xsl</strong></a><span class="dependency-type"> xsl:include</span><br /><span class="specific-attributes"> version="2.0"</span><pre class="content">&lt;xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xs="http://www.w3.org/2001/XMLSchema" exclude-result-prefixes="xs" version="2.0"&gt;
+                     <li><span class="bullet"></span><a href="file:/D:/dev/github/mricaud/xml-utilities/src/test/org/mricaud/xml-utilities/get-xml-file-static-dependency-tree/xsl/module.xsl">../../xsl/<strong>module.xsl</strong></a><span class="dependency-type"> xsl:include</span><br></br><span class="specific-attributes"> version="2.0"</span><pre class="content">&lt;xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xs="http://www.w3.org/2001/XMLSchema" exclude-result-prefixes="xs" version="2.0"&gt;
   
   &lt;xsl:template match="node() | @*"&gt;
     &lt;xsl:copy&gt;
@@ -77,7 +100,7 @@ element test { xsd:double }
 &lt;/xsl:stylesheet&gt;</pre></li>
                   </ul>
                </li>
-               <li><a href="file:/C:/Users/mricaud/_WORK/_github/mricaud/xml-utilities/src/test/org/mricaud/xml-utilities/get-xml-file-static-dependency-tree/nvdl/attach.nvdl"><strong>attach.nvdl</strong></a><span class="dependency-type"> xi:include</span><pre class="content">&lt;mode xmlns="http://purl.oclc.org/dsdl/nvdl/ns/structure/1.0" name="unAttach"&gt;
+               <li><span class="bullet"></span><a href="file:/D:/dev/github/mricaud/xml-utilities/src/test/org/mricaud/xml-utilities/get-xml-file-static-dependency-tree/nvdl/attach.nvdl"><strong>attach.nvdl</strong></a><span class="dependency-type"> xi:include</span><pre class="content">&lt;mode xmlns="http://purl.oclc.org/dsdl/nvdl/ns/structure/1.0" name="unAttach"&gt;
   &lt;anyNamespace&gt;
     &lt;allow/&gt;
   &lt;/anyNamespace&gt;
