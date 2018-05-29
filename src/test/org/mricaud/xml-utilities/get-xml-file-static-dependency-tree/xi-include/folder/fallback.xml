@@ -1,2 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<my-fallback/>
+<my-fallback xmlns:xi="http://www.w3.org/2003/XInclude">
+  <xi:include href="../input.xml"/>
+</my-fallback>

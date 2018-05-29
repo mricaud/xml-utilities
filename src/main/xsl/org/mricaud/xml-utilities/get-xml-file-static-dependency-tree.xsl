@@ -131,25 +131,27 @@
       <xsl:for-each select="$specific-attributes-set">
         <xsl:attribute name="{'_' || local-name(.)}" select="."/>
       </xsl:for-each>
-      <xsl:apply-templates mode="#current">
-        <xsl:with-param name="caller.uri" select="$abs-uri" as="xs:anyURI" tunnel="yes"/>
-      </xsl:apply-templates>
+      <xsl:apply-templates mode="#current"/>
     </file>
   </xsl:template>
   
   <xd:p>Common template to manage dependencies walking behaviour</xd:p>
   <xsl:template name="xut:get-xml-dependency">
-    <xsl:param name="caller.uri" as="xs:anyURI" tunnel="yes"/>
+    <xsl:param name="callers.uris" as="xs:anyURI*" tunnel="yes"/>
     <xsl:param name="res.attribute" required="yes" as="xs:string"/>
     <xsl:param name="dependency-type" select="name()" as="xs:string"/>
     <xsl:variable name="abs-uri" select="xut:getAbsoluteUri(., $res.attribute)" as="xs:anyURI"/>
+    <xsl:if test="$xut:get-xml-file-static-dependency-tree.display-messages">
+      <xsl:message>$callers.uris=&#10;   <xsl:value-of select="$callers.uris" separator="&#10;   "/></xsl:message>
+    </xsl:if>
     <xsl:choose>
-      <xsl:when test="$caller.uri != $abs-uri">
+      <xsl:when test="not($callers.uris = $abs-uri)">
         <xsl:choose>
           <xsl:when test="doc-available($abs-uri)">
             <xsl:apply-templates select="doc($abs-uri)" mode="#current">
               <xsl:with-param name="dependency-type" select="$dependency-type" as="xs:string"/>
               <xsl:with-param name="uri" select="$res.attribute" as="xs:string"/>
+              <xsl:with-param name="callers.uris" select="($callers.uris, $abs-uri)" as="xs:anyURI*" tunnel="yes"/>
             </xsl:apply-templates>
           </xsl:when>
           <xsl:when test="unparsed-text-available($abs-uri)">
@@ -171,8 +173,6 @@
                 <xsl:attribute name="dependency-type" select="$dependency-type"/>
               </xsl:if>
               <report role="error" code="xut:docIsNotAvailable"><xsl:value-of select="$error.msg"/></report>
-              <!--In some special case an inclusion can contains another inclusion (e.g. rng:include with rng:externalRef inside)-->
-              <xsl:apply-templates mode="#current"/>
             </file>
             <xsl:message>[ERROR] <xsl:value-of select="$error.msg"/></xsl:message>
           </xsl:otherwise>
