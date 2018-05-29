@@ -37,6 +37,9 @@
   <xd:p>Instead of the default XML output one can generate an HTML file which might be easyer to share</xd:p> 
   <xsl:param name="xut:get-xml-file-static-dependency-tree.outputHtml" select="false()" as="xs:boolean"/>
   
+  <xd:p>Be able to desactivate all xsl:messges produced by this XSLT</xd:p>
+  <xsl:param name="xut:get-xml-file-static-dependency-tree.display-messages" select="true()" as="xs:boolean"/>
+  
   <!--================================================================================================================-->
   <!--INIT-->
   <!--================================================================================================================-->
@@ -111,6 +114,9 @@
       <xsl:apply-templates select="*" mode="xut:get-xml-dependency-tree.specific-attributes-set"/>
     </xsl:variable>
     <xsl:variable name="abs-uri" select="document-uri(/)" as="xs:anyURI"/>
+    <xsl:if test="$xut:get-xml-file-static-dependency-tree.display-messages">
+      <xsl:message><xsl:value-of select="$abs-uri"/></xsl:message>
+    </xsl:if>
     <file>
       <xsl:if test="not(empty($dependency-type))">
         <xsl:attribute name="dependency-type" select="$dependency-type"/>
@@ -153,7 +159,9 @@
                 <xsl:attribute name="dependency-type" select="$dependency-type"/>
               </xsl:if>
               <report role="warning" code="xut:docIsNotAvailableAsXML"><xsl:value-of select="$error.msg"/></report>
-              <xsl:message>[WARNING] <xsl:value-of select="$error.msg"/></xsl:message>
+              <xsl:if test="$xut:get-xml-file-static-dependency-tree.display-messages">
+                <xsl:message>[WARNING] <xsl:value-of select="$error.msg"/></xsl:message>
+              </xsl:if>
             </file>
           </xsl:when>
           <xsl:otherwise>
@@ -171,11 +179,13 @@
         </xsl:choose>
       </xsl:when>
       <xsl:otherwise>
-        <xsl:variable name="error.msg" as="xs:string*">Circular ref to <xsl:value-of select="$caller.uri"/></xsl:variable>
+        <xsl:variable name="error.msg" as="xs:string*">Circular ref to <xsl:value-of select="$abs-uri"/></xsl:variable>
         <file name="{xut:getFileName(string($abs-uri))}">
           <report role="warning" code="xut:circularRef"><xsl:value-of select="$error.msg"/></report>
         </file>
-        <xsl:message>[WARNING] <xsl:value-of select="$error.msg"/></xsl:message>
+        <xsl:if test="$xut:get-xml-file-static-dependency-tree.display-messages">
+          <xsl:message>[WARNING] <xsl:value-of select="$error.msg"/></xsl:message>
+        </xsl:if>
       </xsl:otherwise>
     </xsl:choose>
     <!--In some case an inclusion element may contains another inclusion element as descendant (e.g. rng:externalRef within rng:include, or xspec x:context[@href] within x:description[@stylesheet])-->
@@ -232,7 +242,9 @@
   </xsl:template>
   
   <xsl:template match="p:import | p:document | p:load" mode="xut:get-xml-dependency-tree" priority="-1">
-    <xsl:message>[WARNING] <xsl:value-of select="name()"/> without @href will not be processed</xsl:message>
+    <xsl:if test="$xut:get-xml-file-static-dependency-tree.display-messages">
+      <xsl:message>[WARNING] <xsl:value-of select="name()"/> without @href will not be processed</xsl:message>
+    </xsl:if>
   </xsl:template>
   
   <!--===========================================-->
