@@ -489,7 +489,7 @@
     <xsl:param name="uri" as="xs:string"/>
     <xsl:choose>
       <!--uri is absolute-->
-      <xsl:when test="matches($uri, $xut:abs-uri.reg)">
+      <xsl:when test="matches($uri, $xut:abs-uri.reg) or starts-with($uri, 'http:')">
         <xsl:value-of select="xs:anyURI($uri)"/>
       </xsl:when>
       <!--uri is relativ-->
