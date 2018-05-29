@@ -319,6 +319,12 @@
     </xsl:call-template>
   </xsl:template>
 
+  <xsl:template match="xspec:import[@href]" mode="xut:get-xml-dependency-tree">
+    <xsl:call-template name="xut:get-xml-dependency">
+      <xsl:with-param name="res.attribute" select="@href" as="xs:string"/>
+    </xsl:call-template>
+  </xsl:template>
+  
   <xsl:template match="xspec:context[@href] | xspec:expect[@href]" mode="xut:get-xml-dependency-tree">
     <xsl:call-template name="xut:get-xml-dependency">
       <xsl:with-param name="res.attribute" select="@href" as="xs:string"/>

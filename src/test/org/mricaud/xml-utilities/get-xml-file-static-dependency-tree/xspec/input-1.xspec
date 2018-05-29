@@ -5,6 +5,8 @@
   version="1.0"
   xslt-version="2.0">
   
+  <x:import href="input-2.xspec"/>
+  
   <x:scenario label="main" xml:base="res/">
     <x:context href="data-in.xml"/>
     <x:expect label="The same" href="data-out.xml"/>

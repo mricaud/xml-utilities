@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <file name="input-1.xspec"
-      abs-uri="file:/C:/Users/mricaud/_WORK/_github/mricaud/xml-utilities/src/test/org/mricaud/xml-utilities/get-xml-file-static-dependency-tree/xspec/input-1.xspec"
+      abs-uri="file:/D:/dev/github/mricaud/xml-utilities/src/test/org/mricaud/xml-utilities/get-xml-file-static-dependency-tree/xspec/input-1.xspec"
       _version="1.0"
       _xslt-version="2.0">
    <content>
@@ -8,6 +8,8 @@
                      stylesheet="../xsl/input.xsl"
                      version="1.0"
                      xslt-version="2.0">
+  
+         <x:import href="input-2.xspec"/>
   
          <x:scenario label="main" xml:base="res/">
             <x:context href="data-in.xml"/>
@@ -19,7 +21,7 @@
    <file dependency-type="x:description"
          name="input.xsl"
          uri="../xsl/input.xsl"
-         abs-uri="file:/C:/Users/mricaud/_WORK/_github/mricaud/xml-utilities/src/test/org/mricaud/xml-utilities/get-xml-file-static-dependency-tree/xsl/input.xsl"
+         abs-uri="file:/D:/dev/github/mricaud/xml-utilities/src/test/org/mricaud/xml-utilities/get-xml-file-static-dependency-tree/xsl/input.xsl"
          _version="2.0">
       <content>
          <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
@@ -39,7 +41,7 @@
       <file dependency-type="xsl:import"
             name="mod-1.xsl"
             uri="folder/mod-1.xsl"
-            abs-uri="file:/C:/Users/mricaud/_WORK/_github/mricaud/xml-utilities/src/test/org/mricaud/xml-utilities/get-xml-file-static-dependency-tree/xsl/folder/mod-1.xsl"
+            abs-uri="file:/D:/dev/github/mricaud/xml-utilities/src/test/org/mricaud/xml-utilities/get-xml-file-static-dependency-tree/xsl/folder/mod-1.xsl"
             _version="2.0">
          <content>
             <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
@@ -54,7 +56,7 @@
          <file dependency-type="xsl:import"
                name="module.xsl"
                uri="../module.xsl"
-               abs-uri="file:/C:/Users/mricaud/_WORK/_github/mricaud/xml-utilities/src/test/org/mricaud/xml-utilities/get-xml-file-static-dependency-tree/xsl/module.xsl"
+               abs-uri="file:/D:/dev/github/mricaud/xml-utilities/src/test/org/mricaud/xml-utilities/get-xml-file-static-dependency-tree/xsl/module.xsl"
                _version="2.0">
             <content>
                <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
@@ -75,7 +77,7 @@
       <file dependency-type="xsl:include"
             name="mod-2.xsl"
             uri="folder/mod-2.xsl"
-            abs-uri="file:/C:/Users/mricaud/_WORK/_github/mricaud/xml-utilities/src/test/org/mricaud/xml-utilities/get-xml-file-static-dependency-tree/xsl/folder/mod-2.xsl"
+            abs-uri="file:/D:/dev/github/mricaud/xml-utilities/src/test/org/mricaud/xml-utilities/get-xml-file-static-dependency-tree/xsl/folder/mod-2.xsl"
             _version="2.0">
          <content>
             <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
@@ -90,26 +92,64 @@
          <file dependency-type="xsl:import"
                name="mod-1.xsl"
                uri="mod-1.xsl"
-               abs-uri="file:/C:/Users/mricaud/_WORK/_github/mricaud/xml-utilities/src/test/org/mricaud/xml-utilities/get-xml-file-static-dependency-tree/xsl/folder/mod-1.xsl"
+               abs-uri="file:/D:/dev/github/mricaud/xml-utilities/src/test/org/mricaud/xml-utilities/get-xml-file-static-dependency-tree/xsl/folder/mod-1.xsl"
                _version="2.0">
             <report role="info" code="duplicatedDependency">This file has already been processed</report>
          </file>
       </file>
    </file>
+   <file dependency-type="x:import"
+         name="input-2.xspec"
+         uri="input-2.xspec"
+         abs-uri="file:/D:/dev/github/mricaud/xml-utilities/src/test/org/mricaud/xml-utilities/get-xml-file-static-dependency-tree/xspec/input-2.xspec">
+      <content>
+         <x:description xmlns:x="http://www.jenitennison.com/xslt/xspec"
+                        query="top:marchand:xml:xquery"
+                        query-at="xquery.xq">
+  
+            <x:scenario label="main">
+               <x:context href="data-in.xml" xml:base="res/"/>
+               <x:expect label="The same" href="res/data-out.xml"/>
+            </x:scenario>
+  
+         </x:description>
+      </content>
+      <file name="xquery.xq"
+            abs-uri="file:/D:/dev/github/mricaud/xml-utilities/src/test/org/mricaud/xml-utilities/get-xml-file-static-dependency-tree/xspec/xquery.xq"
+            dependency-type="x:description">
+         <report role="warning" code="xut:docIsNotAvailableAsXML">document is not available as XML: sub-dependencies will not be analyzed</report>
+         <content>xquery version "3.0";&#xD;
+&#xD;
+for $f in /* return $f&#xD;
+</content>
+      </file>
+      <file dependency-type="x:context"
+            name="data-in.xml"
+            uri="data-in.xml"
+            abs-uri="file:/D:/dev/github/mricaud/xml-utilities/src/test/org/mricaud/xml-utilities/get-xml-file-static-dependency-tree/xspec/res/data-in.xml">
+         <content>
+            <data/>
+         </content>
+      </file>
+      <file dependency-type="x:expect"
+            name="data-out.xml"
+            uri="res/data-out.xml"
+            abs-uri="file:/D:/dev/github/mricaud/xml-utilities/src/test/org/mricaud/xml-utilities/get-xml-file-static-dependency-tree/xspec/res/data-out.xml">
+         <content>
+            <data/>
+         </content>
+      </file>
+   </file>
    <file dependency-type="x:context"
          name="data-in.xml"
          uri="data-in.xml"
-         abs-uri="file:/C:/Users/mricaud/_WORK/_github/mricaud/xml-utilities/src/test/org/mricaud/xml-utilities/get-xml-file-static-dependency-tree/xspec/res/data-in.xml">
-      <content>
-         <data/>
-      </content>
+         abs-uri="file:/D:/dev/github/mricaud/xml-utilities/src/test/org/mricaud/xml-utilities/get-xml-file-static-dependency-tree/xspec/res/data-in.xml">
+      <report role="info" code="duplicatedDependency">This file has already been processed</report>
    </file>
    <file dependency-type="x:expect"
          name="data-out.xml"
          uri="data-out.xml"
-         abs-uri="file:/C:/Users/mricaud/_WORK/_github/mricaud/xml-utilities/src/test/org/mricaud/xml-utilities/get-xml-file-static-dependency-tree/xspec/res/data-out.xml">
-      <content>
-         <data/>
-      </content>
+         abs-uri="file:/D:/dev/github/mricaud/xml-utilities/src/test/org/mricaud/xml-utilities/get-xml-file-static-dependency-tree/xspec/res/data-out.xml">
+      <report role="info" code="duplicatedDependency">This file has already been processed</report>
    </file>
 </file>
