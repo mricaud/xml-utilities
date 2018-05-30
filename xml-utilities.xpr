@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project version="19.1">
+<project version="19.0">
     <meta>
         <filters directoryPatterns="" filePatterns="xml-utilities.xpr" positiveFilePatterns="" showHiddenFiles="false"/>
         <options>
-            <serialized version="19.1" xml:space="preserve">
+            <serialized version="19.0" xml:space="preserve">
                 <serializableOrderedMap>
                     <entry>
                         <String>scenario.associations</String>
                         <scenarioAssociation-array>
                             <scenarioAssociation>
                                 <field name="url">
-                                    <String>src/test/org/mricaud/xml-utilities/get-xml-file-static-dependency-tree/nvdl/input.nvdl</String>
+                                    <String>src/test/org/mricaud/xml-utilities/get-xml-file-static-dependency-tree/xsl/input.xsl</String>
                                 </field>
                                 <field name="scenarioIds">
                                     <list>
-                                        <String>get-xml-file-static-dependency-tree.xsl - XHTML</String>
                                         <String>get-xml-file-static-dependency-tree.xsl - XML</String>
+                                        <String>get-xml-file-static-dependency-tree.xsl - XHTML</String>
                                     </list>
                                 </field>
                                 <field name="scenarioTypes">
@@ -36,23 +36,6 @@
                                 </field>
                                 <field name="scenarioTypes">
                                     <list>
-                                        <String>XSL</String>
-                                    </list>
-                                </field>
-                            </scenarioAssociation>
-                            <scenarioAssociation>
-                                <field name="url">
-                                    <String>src/test/org/mricaud/xml-utilities/get-xml-file-static-dependency-tree/xsl/input.xsl</String>
-                                </field>
-                                <field name="scenarioIds">
-                                    <list>
-                                        <String>get-xml-file-static-dependency-tree.xsl - XML</String>
-                                        <String>get-xml-file-static-dependency-tree.xsl - XHTML</String>
-                                    </list>
-                                </field>
-                                <field name="scenarioTypes">
-                                    <list>
-                                        <String>XSL</String>
                                         <String>XSL</String>
                                     </list>
                                 </field>
@@ -93,6 +76,23 @@
                             </scenarioAssociation>
                             <scenarioAssociation>
                                 <field name="url">
+                                    <String>src/test/org/mricaud/xml-utilities/get-xml-file-static-dependency-tree/xspec/input-1.xspec</String>
+                                </field>
+                                <field name="scenarioIds">
+                                    <list>
+                                        <String>get-xml-file-static-dependency-tree.xsl - XML</String>
+                                        <String>get-xml-file-static-dependency-tree.xsl - XHTML</String>
+                                    </list>
+                                </field>
+                                <field name="scenarioTypes">
+                                    <list>
+                                        <String>XSL</String>
+                                        <String>XSL</String>
+                                    </list>
+                                </field>
+                            </scenarioAssociation>
+                            <scenarioAssociation>
+                                <field name="url">
                                     <String>src/test/org/mricaud/xml-utilities/get-xml-file-static-dependency-tree/xsd/input.xsd</String>
                                 </field>
                                 <field name="scenarioIds">
@@ -111,6 +111,23 @@
                             <scenarioAssociation>
                                 <field name="url">
                                     <String>src/test/org/mricaud/xml-utilities/get-xml-file-static-dependency-tree/sch/input.sch</String>
+                                </field>
+                                <field name="scenarioIds">
+                                    <list>
+                                        <String>get-xml-file-static-dependency-tree.xsl - XML</String>
+                                        <String>get-xml-file-static-dependency-tree.xsl - XHTML</String>
+                                    </list>
+                                </field>
+                                <field name="scenarioTypes">
+                                    <list>
+                                        <String>XSL</String>
+                                        <String>XSL</String>
+                                    </list>
+                                </field>
+                            </scenarioAssociation>
+                            <scenarioAssociation>
+                                <field name="url">
+                                    <String>src/test/org/mricaud/xml-utilities/get-xml-file-static-dependency-tree/nvdl/input.nvdl</String>
                                 </field>
                                 <field name="scenarioIds">
                                     <list>
@@ -283,23 +300,6 @@
                                     </list>
                                 </field>
                             </scenarioAssociation>
-                            <scenarioAssociation>
-                                <field name="url">
-                                    <String>src/test/org/mricaud/xml-utilities/get-xml-file-static-dependency-tree/xspec/input-1.xspec</String>
-                                </field>
-                                <field name="scenarioIds">
-                                    <list>
-                                        <String>get-xml-file-static-dependency-tree.xsl - XML</String>
-                                        <String>get-xml-file-static-dependency-tree.xsl - XHTML</String>
-                                    </list>
-                                </field>
-                                <field name="scenarioTypes">
-                                    <list>
-                                        <String>XSL</String>
-                                        <String>XSL</String>
-                                    </list>
-                                </field>
-                            </scenarioAssociation>
                         </scenarioAssociation-array>
                     </entry>
                     <entry>
@@ -346,7 +346,7 @@
                                     <Boolean>true</Boolean>
                                 </field>
                                 <field name="openInBrowser">
-                                    <Boolean>false</Boolean>
+                                    <Boolean>true</Boolean>
                                 </field>
                                 <field name="outputFile">
                                     <File>${cfn}.dependencies.xhtml</File>
@@ -361,10 +361,10 @@
                                     <null/>
                                 </field>
                                 <field name="openInEditor">
-                                    <Boolean>true</Boolean>
+                                    <Boolean>false</Boolean>
                                 </field>
                                 <field name="showInHTMLPane">
-                                    <Boolean>true</Boolean>
+                                    <Boolean>false</Boolean>
                                 </field>
                                 <field name="showInXMLPane">
                                     <Boolean>false</Boolean>
@@ -536,7 +536,7 @@
                                     <String-array/>
                                 </field>
                                 <field name="xslTransformer">
-                                    <String>Saxon-HE</String>
+                                    <String>Saxon-EE</String>
                                 </field>
                                 <field name="extensionURLs">
                                     <String-array/>

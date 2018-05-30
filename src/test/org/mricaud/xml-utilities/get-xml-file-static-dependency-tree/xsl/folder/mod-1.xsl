@@ -4,6 +4,8 @@
   exclude-result-prefixes="xs"
   version="2.0">
   
+  <xsl:import-schema schema-location="../../xsd/input.xsd"/>
+  
   <xsl:import href="../module.xsl"/>
   
 </xsl:stylesheet>

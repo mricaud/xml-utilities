@@ -212,6 +212,12 @@
     </xsl:call-template>
   </xsl:template>
   
+  <xsl:template match="xslt:import-schema" mode="xut:get-xml-dependency-tree">
+    <xsl:call-template name="xut:get-xml-dependency">
+      <xsl:with-param name="res.attribute" select="@schema-location" as="xs:string"/>
+    </xsl:call-template>
+  </xsl:template>
+  
   <!--TODO-->
   <!--<xsl:template match="xsl:*[contains(@,'document(')]">
   </xsl:template>-->
