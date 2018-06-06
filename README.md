@@ -16,7 +16,7 @@ $ mvn clean install
 
 A jar file will be generated in target (and in your .m2 directory).
 
-## Current version: 0.1.0
+## Current version: 0.1.1
 
 Maven support
 
@@ -24,7 +24,7 @@ Maven support
 <dependency>
     <groupId>org.mricaud.xml</groupId>
     <artifactId>xut</artifactId>
-    <version>0.1.0</version>
+    <version>0.1.1</version>
 </dependency>
 ```
 
