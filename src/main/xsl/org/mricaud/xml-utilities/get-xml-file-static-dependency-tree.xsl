@@ -468,8 +468,8 @@
   </xsl:template>
   
   <xsl:template match="file" mode="xut:get-xml-dependency-tree.to-html">
-    <li xmlns="http://www.w3.org/1999/xhtml">
-      <span class="bullet"/>
+    <li xmlns="http://www.w3.org/1999/xhtml" class="collapse">
+      <span class="bullet collapse"/>
       <a href="{@abs-uri}">
         <xsl:if test="xut:getFolderPath(@uri) != ''">
           <xsl:sequence select="xut:getFolderPath(@uri) || '/'"/>
