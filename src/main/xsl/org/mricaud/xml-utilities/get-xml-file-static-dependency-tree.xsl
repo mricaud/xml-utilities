@@ -20,6 +20,8 @@
     <xd:desc>
       <xd:p><xd:b>Author:</xd:b> Matthieu Ricaud-Dussarget</xd:p>
       <xd:p>Generate an file which shows all xml dependencies of an "x-file"(xsl, xpl, xsd, etc.)</xd:p>
+      <xd:p>One can import this XSLT and adapt with extra information to get, in this case please use &lt;block&gt; element
+      which will be properly processed by this xslt (when converting to final HTML)</xd:p>
     </xd:desc>
   </xd:doc>
   
@@ -434,6 +436,10 @@
             .report.error{color:red;}
             .report.warning{color:orange;}
             .report.info{color:lightblue;}
+            .block{
+              padding:1em;
+              border:1px dashed lightblue
+            }
           ]]>
         </style>
         <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"/>
@@ -486,10 +492,10 @@
           </xsl:for-each>
         </span>
       </xsl:if>
-      <xsl:apply-templates select="* except file" mode="#current"/>
-      <xsl:if test="file">
+      <xsl:apply-templates select="* except (file | block)" mode="#current"/>
+      <xsl:if test="file or block">
         <ul>
-          <xsl:apply-templates select="file | report" mode="#current"/>
+          <xsl:apply-templates select="file | block | report" mode="#current"/>
         </ul>
       </xsl:if>
     </li>
@@ -506,6 +512,13 @@
       <strong><xsl:value-of select="upper-case(@role)"/></strong>
       <xsl:text>: </xsl:text>
       <xsl:value-of select="."/>
+    </div>
+  </xsl:template>
+  
+  <xsl:template match="block" mode="xut:get-xml-dependency-tree.to-html">
+    <div xmlns="http://www.w3.org/1999/xhtml" class="block{if(@class) then(' ' || @class) else('')}">
+      <xsl:copy-of select="@* except @class"/>
+      <xsl:apply-templates mode="#current"/>
     </div>
   </xsl:template>
   
