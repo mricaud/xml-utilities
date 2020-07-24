@@ -413,11 +413,13 @@
   <!--================================================================================================================-->
   
   <xsl:template match="/" mode="xut:get-xml-dependency-tree.to-html">
-    <html xmlns="http://www.w3.org/1999/xhtml">
+    <html>
+      <!--xmlns="http://www.w3.org/1999/xhtml" : 
+          https://markmail.org/message/3gjcl5iptxgaeokk : 
+          DON'T use HTML Namespace so script and css a properly escaped (cdata section wouldn't work)-->
       <head>
         <title><xsl:value-of select="file[1]/@name"/> dependency tree</title>
         <style type="text/css">
-          <![CDATA[
             body{font-family:sans-serif;}
             li{list-style-type:none; margin-top:1em;}
             li.collapse > ul{display:none;}
@@ -440,11 +442,9 @@
               padding:1em;
               border:1px dashed lightblue
             }
-          ]]>
         </style>
         <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"/>
         <script type="text/javascript">
-          <![CDATA[
            try {
             $(function(){
               $(document).ready(function() {
@@ -455,7 +455,6 @@
               });
             });
           } catch(err){}
-          ]]>
         </script>
       </head>
       <body>
