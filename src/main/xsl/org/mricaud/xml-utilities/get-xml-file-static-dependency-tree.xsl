@@ -291,10 +291,6 @@
     </xsl:call-template>
   </xsl:template>
 
-  <xsl:template match="sch:extends|iso-sch:extends" mode="xut:get-xml-dependency-tree">
-    <!-- ignore extends without @href -->
-  </xsl:template>
-  
   <xsl:template match="/iso-sch:schema | /sch:schema" mode="xut:get-xml-dependency-tree.specific-attributes-set" as="attribute()*">
     <xsl:copy-of select="@* except (@see | @icon)"/>
   </xsl:template>
