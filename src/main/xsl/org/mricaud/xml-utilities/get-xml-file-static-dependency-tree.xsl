@@ -285,12 +285,12 @@
     </xsl:call-template>
   </xsl:template>
 
-  <xsl:template match="sch:extends| iso-sch:extends" mode="xut:get-xml-dependency-tree">
+  <xsl:template match="sch:extends[@href]| iso-sch:extends[@href]" mode="xut:get-xml-dependency-tree">
     <xsl:call-template name="xut:get-xml-dependency">
       <xsl:with-param name="res.attribute" select="@href" as="xs:string"/>
     </xsl:call-template>
   </xsl:template>
-  
+
   <xsl:template match="/iso-sch:schema | /sch:schema" mode="xut:get-xml-dependency-tree.specific-attributes-set" as="attribute()*">
     <xsl:copy-of select="@* except (@see | @icon)"/>
   </xsl:template>
