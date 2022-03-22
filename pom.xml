@@ -7,7 +7,7 @@
   
   <groupId>org.mricaud.xml</groupId>
   <artifactId>xut</artifactId>
-  <version>0.1.2-SNAPSHOT</version>
+  <version>0.1.2</version>
   <packaging>jar</packaging>
   
   <name>xml-utilities</name>
